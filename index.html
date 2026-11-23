@@ -102,7 +102,30 @@ dialog::backdrop { background: rgba(10, 14, 18, 0.8); }
 dialog img { max-width: 96vw; max-height: 88vh; display: block; border-radius: 6px; background: #fff; }
 dialog .cap { color: #fff; font-size: 13px; padding: 6px 2px; display: flex; justify-content: space-between; gap: 12px; }
 dialog button { font: inherit; color: #fff; background: none; border: 1px solid #fff6; border-radius: 6px; padding: 2px 10px; cursor: pointer; }
-@media (max-width: 640px) { .bar { width: 110px; } td, th { padding: 6px 4px; } }
+@media (max-width: 640px) {
+  /* Telefon: jede Tabellenzeile wird zu einer kompakten Karte */
+  .wrap { padding: 16px 12px 48px; gap: 16px; }
+  .card { padding: 12px; }
+  .search input { font-size: 16px; }
+  table, tbody { display: block; }
+  thead { display: none; }
+  tr.grp { display: block; }
+  tr.grp td { display: block; border-bottom: 0; padding: 12px 0 4px; background: none; }
+  tr.item {
+    display: grid; grid-template-columns: 1fr auto; column-gap: 10px; row-gap: 4px;
+    grid-template-areas: "mass k" "ind ind" "bar range" "link link";
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+  }
+  tr.item td { display: block; border: 0; padding: 0; }
+  .c-mass { grid-area: mass; font-weight: 600; }
+  .c-k { grid-area: k; justify-self: end; }
+  .c-ind { grid-area: ind; color: var(--muted); font-size: 13px; }
+  .c-bar { grid-area: bar; align-self: center; }
+  .c-range { grid-area: range; justify-self: end; font-size: 12px; color: var(--muted); }
+  .c-link { grid-area: link; }
+  .bar { width: 100%; }
+  .tablewrap { overflow-x: visible; }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -171,11 +194,11 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     let g = null;
     items.forEach((e) => {
       if (e.gruppe !== g) { g = e.gruppe; html += '<tr class="grp"><td colspan="6">' + esc(g) + "</td></tr>"; }
-      html += "<tr><td>" + esc(e.indikation) + "</td><td>" + esc(e.massnahme) +
+      html += '<tr class="item"><td class="c-ind">' + esc(e.indikation) + '</td><td class="c-mass">' + esc(e.massnahme) +
         (e.fussnote ? "<sup>" + esc(e.fussnote) + "</sup>" : "") +
         (e.notiz ? '<span class="note">' + esc(e.notiz) + "</span>" : "") + "</td>" +
-        (p ? "<td>" + bar(t, e, val) + '</td><td class="num">' + e.von + "–" + e.bis + " " + esc(p.einheit) + "</td>" : "") +
-        "<td>" + badge(e.klasse) + '</td><td><button class="link" type="button" data-t="' + esc(t.id) + '" data-b="' + e.bild + '">Folie</button></td></tr>';
+        (p ? '<td class="c-bar">' + bar(t, e, val) + '</td><td class="num c-range">' + esc(p.name) + " " + e.von + "–" + e.bis + " " + esc(p.einheit) + "</td>" : "") +
+        '<td class="c-k">' + badge(e.klasse) + '</td><td class="c-link"><button class="link" type="button" data-t="' + esc(t.id) + '" data-b="' + e.bild + '">Folie</button></td></tr>';
     });
     return html + "</tbody></table></div>";
   }
