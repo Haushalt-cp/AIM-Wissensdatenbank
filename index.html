@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
+<meta http-equiv="Cache-Control" content="no-cache">
 <meta name="theme-color" content="#1f5f8b">
 <meta name="apple-mobile-web-app-title" content="AIM-Wissen">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -156,7 +157,10 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   <img id="lbimg" alt="">
 </dialog>
 
-<script src="data.js"></script>
+<script>
+  // Inhalte immer frisch laden (GitHub Pages speichert Dateien sonst bis zu 10 Minuten zwischen)
+  document.write('<script src="data.js?t=' + Date.now() + '"><\/script>');
+</script>
 <script>
 (function () {
   const KB = window.KB || { themen: [], klassen: {} };
