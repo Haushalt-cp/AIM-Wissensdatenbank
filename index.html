@@ -207,24 +207,41 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     return (t.tags || []).some((tag) => tag.length >= 4 && tok.includes(norm(tag)));
   }
 
+  // Suche: Begriffe, die ein Thema benennen (Titel/Tags), wählen Themen aus (ODER-verknüpft,
+  // z. B. «Herzinsuffizienz Myokardinfarkt» zeigt beide Themen nebeneinander).
+  // Übrige Begriffe filtern Einträge innerhalb der Themen, in denen sie vorkommen.
+  // Parameter (z. B. LVEF 50) filtern nur Themen, die diesen Parameter haben.
   function search(str) {
     const { params, bare, tokens } = parse(str);
-    const unmatched = new Set(tokens);
+    const topicToks = tokens.filter((tok) => KB.themen.some((t) => tokInTopic(tok, t)));
+    const restToks = tokens.filter((tok) => !topicToks.includes(tok));
+    const unmatched = restToks.filter((tok) => !KB.themen.some((t) => t.eintraege.some((e) => itemHay(e).includes(tok))));
+    const filterToks = restToks.filter((tok) => !unmatched.includes(tok));
+    const hasParam = Object.keys(params).length > 0 || bare != null;
+
+    let selected;
+    if (topicToks.length) {
+      selected = [];
+      topicToks.forEach((tok) => KB.themen.forEach((t) => { if (tokInTopic(tok, t) && !selected.includes(t)) selected.push(t); }));
+    } else if (filterToks.length || hasParam) {
+      selected = KB.themen.slice();
+    } else {
+      selected = [];
+    }
+
     const results = [];
-    KB.themen.forEach((t) => {
-      const itemToks = tokens.filter((tok) => !tokInTopic(tok, t));
-      let items = t.eintraege.filter((e) => itemToks.every((tok) => itemHay(e).includes(tok)));
-      if (itemToks.length && !items.length) return;
-      tokens.forEach((tok) => { if (tokInTopic(tok, t) || items.some((e) => itemHay(e).includes(tok))) unmatched.delete(tok); });
+    selected.forEach((t) => {
+      const own = filterToks.filter((tok) => t.eintraege.some((e) => itemHay(e).includes(tok)));
+      if (!topicToks.length && filterToks.length && !own.length) return;
+      let items = t.eintraege.filter((e) => own.every((tok) => itemHay(e).includes(tok)));
       let val = null;
       if (t.parameter) {
         val = params[t.parameter.name] != null ? params[t.parameter.name] : bare;
         if (val != null) items = items.filter((e) => val >= e.von && val <= e.bis);
       }
-      if (tokens.length === 0 && val == null) return;
       results.push({ t, items, val });
     });
-    return { results, unmatched: [...unmatched] };
+    return { results, unmatched };
   }
 
   function renderHome() {
@@ -238,6 +255,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     if (unmatched.length) html += '<p class="msg">Nichts gefunden zu: <b>' + unmatched.map(esc).join(", ") + "</b>. Dazu gibt es noch keine Folien in der Datenbank.</p>";
     const hits = results.filter((r) => r.items.length);
     if (!hits.length && !unmatched.length) html += '<p class="msg">Keine Einträge für diese Suche.</p>';
+    if (hits.length > 1) html += '<p class="msg"><b>' + hits.length + " Themen</b> nebeneinander: " + hits.map((h) => esc(h.t.titel)).join(" · ") + ". Die Empfehlungen stehen so, wie sie auf den Folien stehen; Wechselwirkungen zwischen den Themen sind nicht berücksichtigt.</p>";
     hits.forEach(({ t, items, val }) => {
       html += '<section class="card"><h2>' + esc(t.titel) + (val != null && t.parameter ? " · " + esc(t.parameter.name) + " " + val + " " + esc(t.parameter.einheit) : "") +
         '</h2>' + metaLine(t) + legend() + table(t, items, val) + '<div><a href="#t-' + esc(t.id) + '">Ganzes Thema mit Originalfolien</a></div></section>';
