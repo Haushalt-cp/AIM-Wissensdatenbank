@@ -304,10 +304,10 @@ window.KB = {
     },
     {
       id: "vorhofflimmern",
-      titel: "Vorhofflimmern – Antikoagulation, Frequenzkontrolle, Risikofaktoren",
+      titel: "Vorhofflimmern – Antikoagulation, Frequenz- und Rhythmuskontrolle, Risikofaktoren",
       fachgebiet: "Kardiologie",
-      tags: ["vorhofflimmern", "vhf", "atrial fibrillation", "cha2ds2-va", "cha2ds2", "chads", "has-bled", "frequenzkontrolle", "rate control", "oak", "rhythmus", "arrhythmie"],
-      quelle: { typ: "Vortrag (FOMF)", stand: "2025/2026", titel: "2024 ESC GL on AF (Van Gelder IC, et al. EHJ 2024;45:3314-414); Kirchhof P, et al. EHJ 2016;37:2893-962 (adapted)" },
+      tags: ["vorhofflimmern", "vhf", "atrial fibrillation", "cha2ds2-va", "cha2ds2", "chads", "has-bled", "frequenzkontrolle", "rate control", "oak", "rhythmus", "arrhythmie", "kardioversion", "cardioversion", "tee", "amiodaron", "flecainid"],
+      quelle: { typ: "Vortrag (FOMF)", stand: "2025/2026", titel: "2024 ESC GL on AF (Van Gelder IC, et al. EHJ 2024;45:3314-414); Kirchhof P, et al. EHJ 2016;37:2893-962 (adapted); Verma A, et al. Can J Cardiol 2014;30:1114-30; Atzema CL, Singh SM. Cardiol Clin 2018;36:141-59" },
       parameter: { name: "LVEF", einheit: "%", min: 20, max: 65 },
       hinweise: [
         "Frequenzkontrolle: Der linke Pfad gilt bei LVEF <40 % ODER Zeichen der Herzinsuffizienz; er bleibt deshalb bei jeder LVEF-Suche sichtbar. Nur der Pfad «LVEF ≥40 %» wird bei LVEF <40 % ausgeblendet.",
@@ -316,7 +316,8 @@ window.KB = {
       screenshots: [
         { datei: "img/vhf-antikoagulation.png", titel: "2024 ESC GL on AF: Anticoagulation" },
         { datei: "img/vhf-frequenzkontrolle.png", titel: "Acute heart rate control" },
-        { datei: "img/vhf-risikofaktoren.png", titel: "Integrated care model for AF management" }
+        { datei: "img/vhf-risikofaktoren.png", titel: "Integrated care model for AF management" },
+        { datei: "img/vhf-kardioversion.png", titel: "Cardioversion" }
       ],
       eintraege: [
         { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Grundsatz", massnahme: "Start OAC ab ≥1 Punkt", bild: 0 },
@@ -338,6 +339,17 @@ window.KB = {
         { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "Beide Pfade", massnahme: "Initial resting HR target: <110 bpm", bild: 1 },
         { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "Beide Pfade, danach", massnahme: "Add digoxin (if no contraindications); initial resting HR target <110 bpm", bild: 1 },
         { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "Note", massnahme: "Avoid bradycardia; perform an echocardiogram to guide further management; consider need for anticoagulation", bild: 1 },
+
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "Hämodynamische Instabilität", massnahme: "Ja → Electrical cardioversion", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "Keine Instabilität", massnahme: "Risk for stroke? Low (1) → Kardioversion; High (2) → TEE", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "(1) Low risk for stroke (NEU)", massnahme: "Clear onset <24 h; therapeutic OAC ≥3 weeks", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "(2) High risk for stroke", massnahme: "Insufficient OAC ≥3 weeks and: onset >24 h or unknown, or mechanical/rheumatic valve, or stroke/TIA <6 months", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "TEE: intracardiac thrombus", massnahme: "OAC and rate control, danach erneut Risk for stroke beurteilen", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "Kardioversion: Wahl", massnahme: "Electrical cardioversion oder pharmacological cardioversion", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "Pharmakologisch: ischemic or structural heart disease", massnahme: "Amiodarone i.v.", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "Pharmakologisch: no relevant structural heart disease", massnahme: "Flecainide / Propafenone i.v. / pitp. Ibutilide i.v.", bild: 3 },
+        { gruppe: "Kardioversion (recent onset AF)", indikation: "Nach Kardioversion (alle)", massnahme: "Stroke prevention: anticoagulation for ≥4 weeks independent of the CHA₂DS₂-VA score. Long-term rhythm control", bild: 3 },
+
 
         { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Alle", massnahme: "Integrated management: identify and actively manage all risk factors and comorbidities", klasse: "I", bild: 2 },
         { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "AHT", massnahme: "BD <130/80 mmHg", notiz: "ESC-Grafik: Blood pressure treatment with target 120–129 mmHg / 70–79 mmHg in most adults (or as low as reasonably achievable)", klasse: "I", bild: 2 },
