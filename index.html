@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIM-Wissensdatenbank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: Suchfeld oben, darunter Treffer als kompakte Tabellen pro Thema; Originalfolie per Klick */
+  --bg: #f5f6f7;
+  --surface: #ffffff;
+  --ink: #1b2228;
+  --muted: #5d6973;
+  --line: #dde2e6;
+  --accent: #1f5f8b;
+  --track: #e9edf0;
+  --c1: #3f9f74;
+  --c2a: #e0b43a;
+  --c2b: #e08a3c;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181b; --surface: #1c2125; --ink: #e6eaed; --muted: #9aa6af; --line: #2d343a;
+    --accent: #6fb0dc; --track: #2a3136; --c1: #4fb487; --c2a: #d9ae3c; --c2b: #e0904a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14181b; --surface: #1c2125; --ink: #e6eaed; --muted: #9aa6af; --line: #2d343a;
+  --accent: #6fb0dc; --track: #2a3136; --c1: #4fb487; --c2a: #d9ae3c; --c2b: #e0904a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 24px 16px 64px; display: grid; gap: 20px; }
+header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h1 { font-size: 20px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+h1 a { color: inherit; text-decoration: none; }
+.sub { color: var(--muted); font-size: 13px; }
+.search { display: grid; gap: 10px; }
+.search input {
+  width: 100%; font: inherit; font-size: 17px; padding: 12px 14px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.search input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.lbl { color: var(--muted); font-size: 13px; }
+button.chip {
+  font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+button.chip[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+button.chip:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.msg { font-size: 14px; color: var(--muted); }
+.msg b { color: var(--ink); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; }
+.card h2 { font-size: 17px; margin: 0; font-weight: 600; text-wrap: balance; }
+.meta { font-size: 13px; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; }
+.meta .open { color: var(--c2b); }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+tr.grp td { background: var(--bg); font-weight: 600; font-size: 13px; color: var(--accent); padding-top: 10px; }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 13px; white-space: nowrap; }
+sup { color: var(--muted); font-size: 10px; }
+.note { color: var(--muted); font-size: 12px; display: block; }
+.bar { position: relative; width: 180px; height: 12px; background: var(--track); border-radius: 6px; }
+.bar .fill { position: absolute; top: 0; bottom: 0; border-radius: 6px; }
+.bar .mark { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
+.k-I { background: var(--c1); }
+.k-IIa { background: var(--c2a); }
+.k-IIb { background: var(--c2b); }
+.k-split { background: linear-gradient(var(--c1) 0 50%, var(--c2a) 50% 100%); }
+.badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; color: #1b2228; white-space: nowrap; }
+button.link { font: inherit; font-size: 13px; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+a { color: var(--accent); }
+.shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.shots figure { margin: 0; display: grid; gap: 4px; }
+.shots img { max-width: 100%; border: 1px solid var(--line); border-radius: 6px; cursor: zoom-in; background: #fff; }
+.shots figcaption { font-size: 12px; color: var(--muted); }
+ul.hints { margin: 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
+.topics { display: grid; gap: 10px; }
+.topic-link { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+.topic-link:hover { border-color: var(--accent); }
+.legend { display: flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--muted); align-items: center; }
+dialog { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
+dialog::backdrop { background: rgba(10, 14, 18, 0.8); }
+dialog img { max-width: 96vw; max-height: 88vh; display: block; border-radius: 6px; background: #fff; }
+dialog .cap { color: #fff; font-size: 13px; padding: 6px 2px; display: flex; justify-content: space-between; gap: 12px; }
+dialog button { font: inherit; color: #fff; background: none; border: 1px solid #fff6; border-radius: 6px; padding: 2px 10px; cursor: pointer; }
+@media (max-width: 640px) { .bar { width: 110px; } td, th { padding: 6px 4px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><a href="#" id="home">AIM-Wissensdatenbank</a></h1>
+    <span class="sub" id="stats"></span>
+  </header>
+
+  <section class="search" aria-label="Suche">
+    <label for="q" class="lbl">Suche nach Krankheitsbild, Massnahme oder Parameter (z. B. «LVEF 50»)</label>
+    <input id="q" type="search" autocomplete="off" placeholder="z. B. Herzinsuffizienz LVEF 50">
+    <div class="row">
+      <span class="lbl">Beispiele:</span>
+      <button class="chip ex" type="button">Herzinsuffizienz LVEF 50</button>
+      <button class="chip ex" type="button">LVEF 30</button>
+      <button class="chip ex" type="button">iron</button>
+      <button class="chip ex" type="button">atrial fibrillation</button>
+    </div>
+  </section>
+
+  <div id="out" aria-live="polite"></div>
+</div>
+
+<dialog id="lb">
+  <div class="cap"><span id="lbcap"></span><button type="button" id="lbclose">Schliessen</button></div>
+  <img id="lbimg" alt="">
+</dialog>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  const KB = window.KB || { themen: [], klassen: {} };
+  const $ = (s) => document.querySelector(s);
+  const out = $("#out"), q = $("#q");
+  const STOP = new Set(["therapie","leitlinie","leitlinien","leitlinientherapie","leitliniengerecht","behandlung","bei","mit","und","oder","der","die","das","den","dem","für","fuer","von","zu","was","welche","empfehlung","empfehlungen","guideline","guidelines","therapy","treatment","patient","patienten","the","of","in","im"]);
+  const PARAM_ALIASES = { lvef: "LVEF", ef: "LVEF" };
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+  const norm = (s) => String(s ?? "").toLowerCase();
+
+  const nItems = KB.themen.reduce((a, t) => a + t.eintraege.length, 0);
+  $("#stats").textContent = KB.themen.length + (KB.themen.length === 1 ? " Thema" : " Themen") + " · " + nItems + " Einträge";
+
+  function badge(k) {
+    const cls = k === "I/IIa" ? "k-split" : "k-" + k;
+    return '<span class="badge ' + cls + '">' + esc(k) + "</span>";
+  }
+  function bar(t, e, val) {
+    const p = t.parameter; if (!p) return "";
+    const span = p.max - p.min;
+    const l = ((e.von - p.min) / span) * 100, w = ((e.bis - e.von) / span) * 100;
+    const cls = e.klasse === "I/IIa" ? "k-split" : "k-" + e.klasse;
+    let m = "";
+    if (val != null && val >= p.min && val <= p.max) m = '<span class="mark" style="left:calc(' + ((val - p.min) / span) * 100 + '% - 1px)"></span>';
+    return '<div class="bar" aria-hidden="true"><span class="fill ' + cls + '" style="left:' + l + "%;width:" + Math.max(w, 2) + '%"></span>' + m + "</div>";
+  }
+
+  function table(t, items, val) {
+    if (!items.length) return '<p class="msg">Keine Einträge für diese Auswahl.</p>';
+    const p = t.parameter;
+    let html = '<div class="tablewrap"><table><thead><tr><th>Indikation</th><th>Massnahme</th>' +
+      (p ? "<th>" + esc(p.name) + " " + p.min + "–" + p.max + " " + esc(p.einheit) + "</th><th>Bereich</th>" : "") +
+      "<th>Klasse</th><th></th></tr></thead><tbody>";
+    let g = null;
+    items.forEach((e) => {
+      if (e.gruppe !== g) { g = e.gruppe; html += '<tr class="grp"><td colspan="6">' + esc(g) + "</td></tr>"; }
+      html += "<tr><td>" + esc(e.indikation) + "</td><td>" + esc(e.massnahme) +
+        (e.fussnote ? "<sup>" + esc(e.fussnote) + "</sup>" : "") +
+        (e.notiz ? '<span class="note">' + esc(e.notiz) + "</span>" : "") + "</td>" +
+        (p ? "<td>" + bar(t, e, val) + '</td><td class="num">' + e.von + "–" + e.bis + " " + esc(p.einheit) + "</td>" : "") +
+        "<td>" + badge(e.klasse) + '</td><td><button class="link" type="button" data-t="' + esc(t.id) + '" data-b="' + e.bild + '">Folie</button></td></tr>';
+    });
+    return html + "</tbody></table></div>";
+  }
+
+  function legend() {
+    return '<div class="legend"><span>Farbcode der Folien:</span>' + badge("I") + badge("IIa") + badge("IIb") + badge("I/IIa") + "<span>zweifarbiger Balken</span></div>";
+  }
+
+  function metaLine(t) {
+    const s = t.quelle || {};
+    const parts = [t.fachgebiet, s.typ, s.stand ? "Stand " + s.stand : null, s.titel].filter(Boolean);
+    return '<div class="meta">' + parts.map((p) => "<span>" + esc(p) + "</span>").join("") + "</div>";
+  }
+
+  function parse(str) {
+    let s = norm(str);
+    const params = {};
+    s = s.replace(/\b(lvef|ef)\s*(?:=|:|von|bei|<|>)?\s*(\d{1,3})\s*%?/g, (_, k, n) => { params[PARAM_ALIASES[k]] = +n; return " "; });
+    let bare = null;
+    s = s.replace(/\b(\d{1,3})\s*%?/g, (_, n) => { bare = +n; return " "; });
+    const tokens = s.split(/[^a-zäöüéèàß0-9\/\-]+/i).filter((w) => w.length >= 2 && !STOP.has(w));
+    return { params, bare, tokens };
+  }
+
+  function topicHay(t) { return norm([t.titel, t.fachgebiet].concat(t.tags || []).join(" ")); }
+  function itemHay(e) { return norm([e.gruppe, e.indikation, e.massnahme, e.notiz].join(" ")); }
+  function tokInTopic(tok, t) {
+    if (topicHay(t).includes(tok)) return true;
+    return (t.tags || []).some((tag) => tag.length >= 4 && tok.includes(norm(tag)));
+  }
+
+  function search(str) {
+    const { params, bare, tokens } = parse(str);
+    const unmatched = new Set(tokens);
+    const results = [];
+    KB.themen.forEach((t) => {
+      const itemToks = tokens.filter((tok) => !tokInTopic(tok, t));
+      let items = t.eintraege.filter((e) => itemToks.every((tok) => itemHay(e).includes(tok)));
+      if (itemToks.length && !items.length) return;
+      tokens.forEach((tok) => { if (tokInTopic(tok, t) || items.some((e) => itemHay(e).includes(tok))) unmatched.delete(tok); });
+      let val = null;
+      if (t.parameter) {
+        val = params[t.parameter.name] != null ? params[t.parameter.name] : bare;
+        if (val != null) items = items.filter((e) => val >= e.von && val <= e.bis);
+      }
+      if (tokens.length === 0 && val == null) return;
+      results.push({ t, items, val });
+    });
+    return { results, unmatched: [...unmatched] };
+  }
+
+  function renderHome() {
+    out.innerHTML = '<div class="topics">' + KB.themen.map((t) =>
+      '<a class="topic-link" href="#t-' + esc(t.id) + '"><span><b>' + esc(t.titel) + '</b></span><span class="sub">' + esc(t.fachgebiet) + " · " + t.eintraege.length + " Einträge · " + t.screenshots.length + " Folien</span></a>").join("") + "</div>";
+  }
+
+  function renderSearch(str) {
+    const { results, unmatched } = search(str);
+    let html = "";
+    if (unmatched.length) html += '<p class="msg">Nichts gefunden zu: <b>' + unmatched.map(esc).join(", ") + "</b>. Dazu gibt es noch keine Folien in der Datenbank.</p>";
+    const hits = results.filter((r) => r.items.length);
+    if (!hits.length && !unmatched.length) html += '<p class="msg">Keine Einträge für diese Suche.</p>';
+    hits.forEach(({ t, items, val }) => {
+      html += '<section class="card"><h2>' + esc(t.titel) + (val != null && t.parameter ? " · " + esc(t.parameter.name) + " " + val + " " + esc(t.parameter.einheit) : "") +
+        '</h2>' + metaLine(t) + legend() + table(t, items, val) + '<div><a href="#t-' + esc(t.id) + '">Ganzes Thema mit Originalfolien</a></div></section>';
+    });
+    out.innerHTML = html;
+  }
+
+  function renderTopic(id) {
+    const t = KB.themen.find((x) => x.id === id);
+    if (!t) { renderHome(); return; }
+    const items = t.eintraege;
+    out.innerHTML = '<section class="card"><h2>' + esc(t.titel) + "</h2>" + metaLine(t) +
+      (t.hinweise && t.hinweise.length ? '<ul class="hints">' + t.hinweise.map((h) => "<li>" + esc(h) + "</li>").join("") + "</ul>" : "") +
+      legend() + table(t, items, null) + "</section>" +
+      '<section class="card"><h2>Originalfolien</h2><div class="shots">' + t.screenshots.map((s, i) =>
+        '<figure><img src="' + esc(s.datei) + '" alt="' + esc(s.titel) + '" data-t="' + esc(t.id) + '" data-b="' + i + '"><figcaption>' + esc(s.titel) + "</figcaption></figure>").join("") + "</div></section>";
+  }
+
+  function route() {
+    const h = location.hash.replace(/^#/, "");
+    if (q.value.trim()) { renderSearch(q.value); return; }
+    if (h.startsWith("t-")) renderTopic(h.slice(2)); else renderHome();
+  }
+
+  const lb = $("#lb");
+  function openShot(tid, b) {
+    const t = KB.themen.find((x) => x.id === tid); if (!t) return;
+    const s = t.screenshots[+b]; if (!s) return;
+    $("#lbimg").src = s.datei; $("#lbimg").alt = s.titel; $("#lbcap").textContent = t.titel + " · " + s.titel;
+    try { lb.showModal(); } catch (e) { lb.setAttribute("open", ""); }
+  }
+  $("#lbclose").addEventListener("click", () => lb.close());
+  lb.addEventListener("click", (ev) => { if (ev.target === lb) lb.close(); });
+  out.addEventListener("click", (ev) => {
+    const el = ev.target.closest("[data-b]");
+    if (el) openShot(el.dataset.t, el.dataset.b);
+  });
+
+  let timer;
+  q.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(route, 120); });
+  document.querySelectorAll(".ex").forEach((b) => b.addEventListener("click", () => { q.value = b.textContent; route(); q.focus(); }));
+  $("#home").addEventListener("click", (ev) => { ev.preventDefault(); q.value = ""; history.replaceState(null, "", location.pathname); route(); });
+  window.addEventListener("hashchange", () => { q.value = ""; route(); });
+
+  q.value = "Herzinsuffizienz LVEF 50";
+  route();
+})();
+</script>
+</body>
+</html>
