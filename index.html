@@ -144,14 +144,6 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   <section class="search" aria-label="Suche">
     <label for="q" class="lbl">Suche nach Krankheitsbild, Massnahme oder Parameter (z. B. «LVEF 50», «Grad 3»); mehrere Krankheitsbilder gleichzeitig möglich</label>
     <input id="q" type="search" autocomplete="off" placeholder="z. B. Herzinsuffizienz LVEF 50">
-    <div class="row">
-      <span class="lbl">Beispiele:</span>
-      <button class="chip ex" type="button">Herzinsuffizienz LVEF 50</button>
-      <button class="chip ex" type="button">Myokardinfarkt LVEF 30</button>
-      <button class="chip ex" type="button">Diabetes CKD</button>
-      <button class="chip ex" type="button">irAE Grad 3</button>
-      <button class="chip ex" type="button">Apixaban</button>
-    </div>
   </section>
 
   <div id="out" aria-live="polite"></div>
@@ -367,7 +359,6 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
 
   let timer;
   q.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(route, 120); });
-  document.querySelectorAll(".ex").forEach((b) => b.addEventListener("click", () => { q.value = b.textContent; route(); q.focus(); }));
   $("#home").addEventListener("click", (ev) => { ev.preventDefault(); q.value = ""; history.replaceState(null, "", location.pathname); route(); });
   window.addEventListener("hashchange", () => { q.value = ""; route(); });
 
