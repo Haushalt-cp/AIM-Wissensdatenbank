@@ -67,6 +67,8 @@ button.chip:focus-visible, a:focus-visible, button:focus-visible { outline: 2px 
 .msg { font-size: 14px; color: var(--muted); }
 .msg b { color: var(--ink); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; }
+.card.minor { padding: 12px 16px; gap: 8px; }
+.card h3 { font-size: 15px; margin: 0; font-weight: 600; }
 .card h2 { font-size: 17px; margin: 0; font-weight: 600; text-wrap: balance; }
 .meta { font-size: 13px; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; }
 .meta .open { color: var(--c2b); }
@@ -77,13 +79,14 @@ td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: mid
 tr.grp td { background: var(--bg); font-weight: 600; font-size: 13px; color: var(--accent); padding-top: 10px; }
 .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 13px; white-space: nowrap; }
 sup { color: var(--muted); font-size: 10px; }
-.note { color: var(--muted); font-size: 12px; display: block; }
+.note { color: var(--muted); font-size: 12px; display: block; font-weight: 400; }
 .bar { position: relative; width: 180px; height: 12px; background: var(--track); border-radius: 6px; }
 .bar .fill { position: absolute; top: 0; bottom: 0; border-radius: 6px; }
 .bar .mark { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
 .k-I { background: var(--c1); }
 .k-IIa { background: var(--c2a); }
 .k-IIb { background: var(--c2b); }
+.k-none { background: var(--accent); opacity: 0.55; }
 .k-split { background: linear-gradient(var(--c1) 0 50%, var(--c2a) 50% 100%); }
 .badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; color: #1b2228; white-space: nowrap; }
 button.link { font: inherit; font-size: 13px; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
@@ -93,7 +96,9 @@ a { color: var(--accent); }
 .shots img { max-width: 100%; border: 1px solid var(--line); border-radius: 6px; cursor: zoom-in; background: #fff; }
 .shots figcaption { font-size: 12px; color: var(--muted); }
 ul.hints { margin: 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
-.topics { display: grid; gap: 10px; }
+.topics { display: grid; gap: 8px; }
+#out { display: grid; gap: 18px; }
+h2.fg { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0; }
 .topic-link { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
 .topic-link:hover { border-color: var(--accent); }
 .legend { display: flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--muted); align-items: center; }
@@ -137,14 +142,15 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   </header>
 
   <section class="search" aria-label="Suche">
-    <label for="q" class="lbl">Suche nach Krankheitsbild, Massnahme oder Parameter (z. B. «LVEF 50»)</label>
+    <label for="q" class="lbl">Suche nach Krankheitsbild, Massnahme oder Parameter (z. B. «LVEF 50», «Grad 3»); mehrere Krankheitsbilder gleichzeitig möglich</label>
     <input id="q" type="search" autocomplete="off" placeholder="z. B. Herzinsuffizienz LVEF 50">
     <div class="row">
       <span class="lbl">Beispiele:</span>
       <button class="chip ex" type="button">Herzinsuffizienz LVEF 50</button>
-      <button class="chip ex" type="button">LVEF 30</button>
-      <button class="chip ex" type="button">iron</button>
-      <button class="chip ex" type="button">atrial fibrillation</button>
+      <button class="chip ex" type="button">Myokardinfarkt LVEF 30</button>
+      <button class="chip ex" type="button">Diabetes CKD</button>
+      <button class="chip ex" type="button">irAE Grad 3</button>
+      <button class="chip ex" type="button">Apixaban</button>
     </div>
   </section>
 
@@ -163,7 +169,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   const $ = (s) => document.querySelector(s);
   const out = $("#out"), q = $("#q");
   const STOP = new Set(["therapie","leitlinie","leitlinien","leitlinientherapie","leitliniengerecht","behandlung","bei","mit","und","oder","der","die","das","den","dem","für","fuer","von","zu","was","welche","empfehlung","empfehlungen","guideline","guidelines","therapy","treatment","patient","patienten","the","of","in","im"]);
-  const PARAM_ALIASES = { lvef: "LVEF", ef: "LVEF" };
+  const PARAM_ALIASES = { lvef: "LVEF", ef: "LVEF", grad: "Grad", grade: "Grad", ctcae: "Grad" };
 
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
   const norm = (s) => String(s ?? "").toLowerCase();
@@ -175,36 +181,52 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     const cls = k === "I/IIa" ? "k-split" : "k-" + k;
     return '<span class="badge ' + cls + '">' + esc(k) + "</span>";
   }
+  const hasRange = (e) => e.von != null && e.bis != null;
+  function rangeText(t, e) {
+    const p = t.parameter;
+    const u = p.einheit ? " " + p.einheit : "";
+    if (e.bereichText) return p.name + " " + e.bereichText;
+    if (e.von === e.bis) return p.name + " " + e.von + u;
+    return p.name + " " + e.von + "–" + e.bis + u;
+  }
   function bar(t, e, val) {
-    const p = t.parameter; if (!p) return "";
+    const p = t.parameter; if (!p || !hasRange(e)) return "";
     const span = p.max - p.min;
-    const l = ((e.von - p.min) / span) * 100, w = ((e.bis - e.von) / span) * 100;
-    const cls = e.klasse === "I/IIa" ? "k-split" : "k-" + e.klasse;
+    const a = Math.max(e.von, p.min), b = Math.min(e.bis, p.max);
+    const single = a === b;
+    const l = ((a - p.min) / span) * 100, w = single ? 0 : ((b - a) / span) * 100;
+    const cls = !e.klasse ? "k-none" : e.klasse === "I/IIa" ? "k-split" : "k-" + e.klasse;
     let m = "";
     if (val != null && val >= p.min && val <= p.max) m = '<span class="mark" style="left:calc(' + ((val - p.min) / span) * 100 + '% - 1px)"></span>';
-    return '<div class="bar" aria-hidden="true"><span class="fill ' + cls + '" style="left:' + l + "%;width:" + Math.max(w, 2) + '%"></span>' + m + "</div>";
+    const fillStyle = single ? "left:calc(" + l + "% - 6px);width:12px" : "left:" + l + "%;width:" + Math.max(w, 2) + "%";
+    return '<div class="bar" aria-hidden="true"><span class="fill ' + cls + '" style="' + fillStyle + '"></span>' + m + "</div>";
   }
 
   function table(t, items, val) {
     if (!items.length) return '<p class="msg">Keine Einträge für diese Auswahl.</p>';
     const p = t.parameter;
+    const showRange = !!p && items.some(hasRange);
+    const showK = items.some((e) => e.klasse);
+    const cols = 3 + (showRange ? 2 : 0) + (showK ? 1 : 0);
     let html = '<div class="tablewrap"><table><thead><tr><th>Indikation</th><th>Massnahme</th>' +
-      (p ? "<th>" + esc(p.name) + " " + p.min + "–" + p.max + " " + esc(p.einheit) + "</th><th>Bereich</th>" : "") +
-      "<th>Klasse</th><th></th></tr></thead><tbody>";
+      (showRange ? "<th>" + esc(p.name) + " " + p.min + "–" + p.max + (p.einheit ? " " + esc(p.einheit) : "") + "</th><th>Bereich</th>" : "") +
+      (showK ? "<th>Klasse</th>" : "") + "<th></th></tr></thead><tbody>";
     let g = null;
     items.forEach((e) => {
-      if (e.gruppe !== g) { g = e.gruppe; html += '<tr class="grp"><td colspan="6">' + esc(g) + "</td></tr>"; }
+      if (e.gruppe !== g) { g = e.gruppe; html += '<tr class="grp"><td colspan="' + cols + '">' + esc(g) + "</td></tr>"; }
       html += '<tr class="item"><td class="c-ind">' + esc(e.indikation) + '</td><td class="c-mass">' + esc(e.massnahme) +
         (e.fussnote ? "<sup>" + esc(e.fussnote) + "</sup>" : "") +
         (e.notiz ? '<span class="note">' + esc(e.notiz) + "</span>" : "") + "</td>" +
-        (p ? '<td class="c-bar">' + bar(t, e, val) + '</td><td class="num c-range">' + esc(p.name) + " " + e.von + "–" + e.bis + " " + esc(p.einheit) + "</td>" : "") +
-        '<td class="c-k">' + badge(e.klasse) + '</td><td class="c-link"><button class="link" type="button" data-t="' + esc(t.id) + '" data-b="' + e.bild + '">Folie</button></td></tr>';
+        (showRange ? '<td class="c-bar">' + bar(t, e, val) + '</td><td class="num c-range">' + (hasRange(e) ? esc(rangeText(t, e)) : "") + "</td>" : "") +
+        (showK ? '<td class="c-k">' + (e.klasse ? badge(e.klasse) : "") + "</td>" : "") +
+        '<td class="c-link"><button class="link" type="button" data-t="' + esc(t.id) + '" data-b="' + e.bild + '">Folie</button></td></tr>';
     });
     return html + "</tbody></table></div>";
   }
 
-  function legend() {
-    return '<div class="legend"><span>Farbcode der Folien:</span>' + badge("I") + badge("IIa") + badge("IIb") + badge("I/IIa") + "<span>zweifarbiger Balken</span></div>";
+  function legend(items) {
+    if (!items.some((e) => e.klasse)) return "";
+    return '<div class="legend"><span>Empfehlungsklasse (Farbcode der Folien):</span>' + badge("I") + badge("IIa") + badge("IIb") + badge("I/IIa") + "<span>zweifarbiger Balken</span></div>";
   }
 
   function metaLine(t) {
@@ -216,7 +238,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   function parse(str) {
     let s = norm(str);
     const params = {};
-    s = s.replace(/\b(lvef|ef)\s*(?:=|:|von|bei|<|>)?\s*(\d{1,3})\s*%?/g, (_, k, n) => { params[PARAM_ALIASES[k]] = +n; return " "; });
+    s = s.replace(/\b(lvef|ef|grad|grade|ctcae)\s*(?:=|:|von|bei|<|>)?\s*(\d{1,3})\s*%?/g, (_, k, n) => { params[PARAM_ALIASES[k]] = +n; return " "; });
     let bare = null;
     s = s.replace(/\b(\d{1,3})\s*%?/g, (_, n) => { bare = +n; return " "; });
     const tokens = s.split(/[^a-zäöüéèàß0-9\/\-]+/i).filter((w) => w.length >= 2 && !STOP.has(w));
@@ -260,20 +282,40 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
       let val = null;
       if (t.parameter) {
         val = params[t.parameter.name] != null ? params[t.parameter.name] : bare;
-        if (val != null) items = items.filter((e) => val >= e.von && val <= e.bis);
+        if (val != null) items = items.filter((e) => !hasRange(e) || (val >= e.von && val <= e.bis));
       }
       results.push({ t, items, val });
     });
-    return { results, unmatched };
+
+    // Begriffe, die ein Thema benennen, kommen oft auch in anderen Themen vor
+    // (z. B. «SGLT2» bei Herzinsuffizienz, CKD, ACS): diese Einträge separat zeigen.
+    const also = [];
+    if (topicToks.length) {
+      KB.themen.forEach((t) => {
+        if (selected.includes(t)) return;
+        let items = t.eintraege.filter((e) => topicToks.some((tok) => itemHay(e).includes(tok)));
+        if (!items.length) return;
+        let val = null;
+        if (t.parameter) {
+          val = params[t.parameter.name] != null ? params[t.parameter.name] : bare;
+          if (val != null) items = items.filter((e) => !hasRange(e) || (val >= e.von && val <= e.bis));
+        }
+        if (items.length) also.push({ t, items, val });
+      });
+    }
+    return { results, unmatched, also };
   }
 
   function renderHome() {
-    out.innerHTML = '<div class="topics">' + KB.themen.map((t) =>
-      '<a class="topic-link" href="#t-' + esc(t.id) + '"><span><b>' + esc(t.titel) + '</b></span><span class="sub">' + esc(t.fachgebiet) + " · " + t.eintraege.length + " Einträge · " + t.screenshots.length + " Folien</span></a>").join("") + "</div>";
+    const groups = {};
+    KB.themen.forEach((t) => { (groups[t.fachgebiet] = groups[t.fachgebiet] || []).push(t); });
+    out.innerHTML = Object.keys(groups).sort((a, b) => a.localeCompare(b, "de")).map((g) =>
+      '<section class="topics"><h2 class="fg">' + esc(g) + "</h2>" + groups[g].sort((a, b) => a.titel.localeCompare(b.titel, "de")).map((t) =>
+        '<a class="topic-link" href="#t-' + esc(t.id) + '"><span><b>' + esc(t.titel) + '</b></span><span class="sub">' + t.eintraege.length + " Einträge · " + t.screenshots.length + (t.screenshots.length === 1 ? " Folie" : " Folien") + "</span></a>").join("") + "</section>").join("");
   }
 
   function renderSearch(str) {
-    const { results, unmatched } = search(str);
+    const { results, unmatched, also } = search(str);
     let html = "";
     if (unmatched.length) html += '<p class="msg">Nichts gefunden zu: <b>' + unmatched.map(esc).join(", ") + "</b>. Dazu gibt es noch keine Folien in der Datenbank.</p>";
     const hits = results.filter((r) => r.items.length);
@@ -281,8 +323,14 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     if (hits.length > 1) html += '<p class="msg"><b>' + hits.length + " Themen</b> nebeneinander: " + hits.map((h) => esc(h.t.titel)).join(" · ") + ". Die Empfehlungen stehen so, wie sie auf den Folien stehen; Wechselwirkungen zwischen den Themen sind nicht berücksichtigt.</p>";
     hits.forEach(({ t, items, val }) => {
       html += '<section class="card"><h2>' + esc(t.titel) + (val != null && t.parameter ? " · " + esc(t.parameter.name) + " " + val + " " + esc(t.parameter.einheit) : "") +
-        '</h2>' + metaLine(t) + legend() + table(t, items, val) + '<div><a href="#t-' + esc(t.id) + '">Ganzes Thema mit Originalfolien</a></div></section>';
+        '</h2>' + metaLine(t) + legend(items) + table(t, items, val) + '<div><a href="#t-' + esc(t.id) + '">Ganzes Thema mit Originalfolien</a></div></section>';
     });
+    if (also.length) {
+      html += '<h2 class="fg">Auch erwähnt in anderen Themen</h2>';
+      also.forEach(({ t, items, val }) => {
+        html += '<section class="card minor"><h3>' + esc(t.titel) + "</h3>" + table(t, items, val) + '<div><a href="#t-' + esc(t.id) + '">Ganzes Thema</a></div></section>';
+      });
+    }
     out.innerHTML = html;
   }
 
@@ -292,7 +340,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     const items = t.eintraege;
     out.innerHTML = '<section class="card"><h2>' + esc(t.titel) + "</h2>" + metaLine(t) +
       (t.hinweise && t.hinweise.length ? '<ul class="hints">' + t.hinweise.map((h) => "<li>" + esc(h) + "</li>").join("") + "</ul>" : "") +
-      legend() + table(t, items, null) + "</section>" +
+      legend(items) + table(t, items, null) + "</section>" +
       '<section class="card"><h2>Originalfolien</h2><div class="shots">' + t.screenshots.map((s, i) =>
         '<figure><img src="' + esc(s.datei) + '" alt="' + esc(s.titel) + '" data-t="' + esc(t.id) + '" data-b="' + i + '"><figcaption>' + esc(s.titel) + "</figcaption></figure>").join("") + "</div></section>";
   }
@@ -323,7 +371,6 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   $("#home").addEventListener("click", (ev) => { ev.preventDefault(); q.value = ""; history.replaceState(null, "", location.pathname); route(); });
   window.addEventListener("hashchange", () => { q.value = ""; route(); });
 
-  q.value = "Herzinsuffizienz LVEF 50";
   route();
 })();
 </script>
