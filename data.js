@@ -603,10 +603,7 @@ window.KB = {
         "stand": "2025/2026",
         "titel": "GOLD 2026 Report (goldcopd.org), Zugriff 20.04.2026"
       },
-      "hinweise": [
-        "Folientitel: «GOLD-Klassifikation der COPD 2025 vs. 2026», markiert als «NEU! GOLD 2026».",
-        "Achsen: Exazerbationen ≤12 Monate (0 / ≥1) gegen Symptome (CAT <10 / ≥10)."
-      ],
+      "hinweise": [],
       "screenshots": [
         {
           "datei": "img/copd-gold-2026.png",
@@ -615,54 +612,13 @@ window.KB = {
       ],
       "eintraege": [
         {
-          "gruppe": "GOLD 2026: Gruppen (A/B/E) und Initialtherapie",
-          "indikation": "Gruppe A: 0 Exazerbationen, CAT <10",
-          "massnahme": "«A» Bronchodilator",
+          "typ": "bild",
+          "kapitel": "Therapie",
+          "gruppe": "GOLD 2026: Gruppen (A/B/E) und Therapie",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "GOLD-Klassifikation der COPD 2025 vs. 2026",
           "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "GOLD 2026: Gruppen (A/B/E) und Initialtherapie",
-          "indikation": "Gruppe B: 0 Exazerbationen, CAT ≥10",
-          "massnahme": "LABA + LAMA",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "GOLD 2026: Gruppen (A/B/E) und Initialtherapie",
-          "indikation": "Gruppe E: ≥1 Exazerbation (unabhängig von CAT)",
-          "massnahme": "LABA + LAMA + ICS*",
-          "notiz": "*Blut-Eos ≥300/µl bzw. ≥100/µl falls wiederholte Exazerbationen",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Zusätzlich aufgeführt (neben Gruppe E)",
-          "indikation": "Chronische Bronchitis",
-          "massnahme": "Roflumilast",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Zusätzlich aufgeführt (neben Gruppe E)",
-          "indikation": "Former Smoker",
-          "massnahme": "Azithromycin",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Zusätzlich aufgeführt (neben Gruppe E)",
-          "indikation": "—",
-          "massnahme": "Biologika [Dupilumab/Mepolizumab]",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Zusätzlich aufgeführt (neben Gruppe E)",
-          "indikation": "Bronchiektasen-Erkrankung",
-          "massnahme": "Brensocatib",
-          "bild": 0,
-          "kapitel": "Therapie"
+          "suchtext": "Gruppe A: 0 Exazerbationen, CAT <10 «A» Bronchodilator · Gruppe B: 0 Exazerbationen, CAT ≥10 LABA + LAMA · Gruppe E: ≥1 Exazerbation (unabhängig von CAT) LABA + LAMA + ICS* *Blut-Eos ≥300/µl bzw. ≥100/µl falls wiederholte Exazerbationen · Chronische Bronchitis Roflumilast · Former Smoker Azithromycin · — Biologika [Dupilumab/Mepolizumab] · Bronchiektasen-Erkrankung Brensocatib"
         }
       ],
       "synonyme": [
@@ -693,10 +649,7 @@ window.KB = {
         "typ": "Vortrag (FOMF)",
         "stand": "2025/2026"
       },
-      "hinweise": [
-        "Pfeile innerhalb der beiden Kästen zeigen in beide Richtungen (Reihenfolge austauschbar).",
-        "Zuordnung der Pfade gemäss Beschriftung unten: links Herzinsuffizienz und Nierenschutz, rechts kardiovaskulär und Gewichtsreduktion."
-      ],
+      "hinweise": [],
       "screenshots": [
         {
           "datei": "img/dm2-algorithmus.png",
@@ -705,53 +658,13 @@ window.KB = {
       ],
       "eintraege": [
         {
-          "gruppe": "Basis",
-          "indikation": "Alle",
-          "massnahme": "Motivation für Änderung Lebensstil (mehr Aktivität und gesunde Ernährung) = sehr wichtig",
+          "typ": "bild",
+          "kapitel": "Therapie",
+          "gruppe": "Therapiealgorithmus",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Therapiealgorithmus Diabetes mellitus Typ 2",
           "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Basis",
-          "indikation": "Alle",
-          "massnahme": "Multifaktorielle Behandlung: Blutdruckkontrolle, Senkung Lipide und Rauchstopp",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Medikamentöse Therapie",
-          "indikation": "Begleiterkrankung: Herzinsuffizienz, Nierenschutz",
-          "massnahme": "Metformin + SGLT-2i (eGFR >30) ↔ + GLP-1-RA (BMI >28) bzw. DPP4i (BMI <28)",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Medikamentöse Therapie",
-          "indikation": "Begleiterkrankung: kardiovaskulär, Gewichtsreduktion",
-          "massnahme": "Metformin (eGFR >30) + GLP-1-RA (BMI >28) ↔ + SGLT-2i (eGFR >30)",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Medikamentöse Therapie",
-          "indikation": "Nächste Stufe",
-          "massnahme": "+ Basalinsulin oder ko-formuliertes Insulin (ein- oder zweimal täglich)",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Medikamentöse Therapie",
-          "indikation": "Insulinmangel",
-          "massnahme": "Falls Insulinmangel, beginne hier (Basalinsulin bzw. ko-formuliertes Insulin)",
-          "bild": 0,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Medikamentöse Therapie",
-          "indikation": "Unter Insulin",
-          "massnahme": "Weiterfahren mit Metformin, SGLT-2i, GLP-1-RA. Stopp: Sulfonylharnstoff + DPP4i (falls GLP-1-RA)",
-          "bild": 0,
-          "kapitel": "Therapie"
+          "suchtext": "Alle Motivation für Änderung Lebensstil (mehr Aktivität und gesunde Ernährung) = sehr wichtig · Alle Multifaktorielle Behandlung: Blutdruckkontrolle, Senkung Lipide und Rauchstopp · Begleiterkrankung: Herzinsuffizienz, Nierenschutz Metformin + SGLT-2i (eGFR >30) ↔ + GLP-1-RA (BMI >28) bzw. DPP4i (BMI <28) · Begleiterkrankung: kardiovaskulär, Gewichtsreduktion Metformin (eGFR >30) + GLP-1-RA (BMI >28) ↔ + SGLT-2i (eGFR >30) · Nächste Stufe + Basalinsulin oder ko-formuliertes Insulin (ein- oder zweimal täglich) · Insulinmangel Falls Insulinmangel, beginne hier (Basalinsulin bzw. ko-formuliertes Insulin) · Unter Insulin Weiterfahren mit Metformin, SGLT-2i, GLP-1-RA. Stopp: Sulfonylharnstoff + DPP4i (falls GLP-1-RA)"
         }
       ],
       "synonyme": [
@@ -1022,104 +935,22 @@ window.KB = {
       ],
       "eintraege": [
         {
+          "typ": "bild",
+          "kapitel": "Risiko/Klassifikation",
           "gruppe": "ESC – LDL-C-Zielwert nach CV-Risiko",
-          "indikation": "Low: SCORE <1%",
-          "massnahme": "LDL-C goal 3.0 mmol/L",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "ESC Guidelines – LDL-C Lowering",
           "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
+          "suchtext": "Low: SCORE <1% LDL-C goal 3.0 mmol/L · Moderate: SCORE ≥1% and <5%; young patients (T1DM <35 years; T2DM <50 years) with DM duration <10 years without other risk factors LDL-C goal 2.6 mmol/L · High: SCORE ≥5% and <10%; markedly elevated single risk factors, in particular TC >8 mmol/L or LDL-C >4.9 mmol/L or BP ≥180/110 mmHg; FH without other major risk factors; moderate CKD (eGFR 30–59 mL/min); DM without target organ damage, with DM duration ≥10 years, or other additional risk factor LDL-C goal 1.8 mmol/L and ≥50% reduction from baseline · Very high: ASCVD (clinical/imaging); SCORE ≥10%; FH with ASCVD or with another major risk factor; severe CKD (eGFR <30 mL/min); DM & target organ damage: ≥3 major risk factors; or early onset of T1DM of long duration (>20 years) LDL-C goal 1.4 mmol/L and ≥50% reduction from baseline · ASCVD with second vascular event within 2 years (not necessarily of the same type) under maximally tolerated statin therapy LDL-C goal <1.0 mmol/L may be considered Level B · Grundsatz Raised LDL-C is a cause of ASCVD; the proportional reduction in risk depends on the absolute reduction in LDL-C"
         },
         {
-          "gruppe": "ESC – LDL-C-Zielwert nach CV-Risiko",
-          "indikation": "Moderate: SCORE ≥1% and <5%; young patients (T1DM <35 years; T2DM <50 years) with DM duration <10 years without other risk factors",
-          "massnahme": "LDL-C goal 2.6 mmol/L",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "ESC – LDL-C-Zielwert nach CV-Risiko",
-          "indikation": "High: SCORE ≥5% and <10%; markedly elevated single risk factors, in particular TC >8 mmol/L or LDL-C >4.9 mmol/L or BP ≥180/110 mmHg; FH without other major risk factors; moderate CKD (eGFR 30–59 mL/min); DM without target organ damage, with DM duration ≥10 years, or other additional risk factor",
-          "massnahme": "LDL-C goal 1.8 mmol/L and ≥50% reduction from baseline",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "ESC – LDL-C-Zielwert nach CV-Risiko",
-          "indikation": "Very high: ASCVD (clinical/imaging); SCORE ≥10%; FH with ASCVD or with another major risk factor; severe CKD (eGFR <30 mL/min); DM & target organ damage: ≥3 major risk factors; or early onset of T1DM of long duration (>20 years)",
-          "massnahme": "LDL-C goal 1.4 mmol/L and ≥50% reduction from baseline",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "ESC – LDL-C-Zielwert nach CV-Risiko",
-          "indikation": "ASCVD with second vascular event within 2 years (not necessarily of the same type) under maximally tolerated statin therapy",
-          "massnahme": "LDL-C goal <1.0 mmol/L may be considered",
-          "klasse": "IIb",
-          "notiz": "Level B",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "ESC – LDL-C-Zielwert nach CV-Risiko",
-          "indikation": "Grundsatz",
-          "massnahme": "Raised LDL-C is a cause of ASCVD; the proportional reduction in risk depends on the absolute reduction in LDL-C",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
+          "typ": "bild",
+          "kapitel": "Therapie",
           "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "Start",
-          "massnahme": "Hochwirksames Statin (Rosuvastatin, Pitavastatin, Atorvastatin)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "AGLA Behandlungsschema – sehr hohes Risiko",
           "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "LDL-C <1,4 mmol/l und Senkung ≥50 %",
-          "massnahme": "Therapie kontrolliert fortsetzen",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "Ziel nicht erreicht, keine manifeste ASCVD",
-          "massnahme": "Ezetimib",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "Ziel nicht erreicht, manifeste ASCVD, LDL-C ≤1,8 mmol/l",
-          "massnahme": "Ezetimib",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "Ziel nicht erreicht, manifeste ASCVD, LDL-C >1,8 mmol/l",
-          "massnahme": "PCSK9-Inhibitor (siRNA: Inclisiran; mAbs: Alirocumab, Evolocumab) oder Ezetimib",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "Unter Ezetimib LDL-C ≤1,8 mmol/l",
-          "massnahme": "Therapie kontrolliert fortsetzen",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "Unter Ezetimib LDL-C >1,8 mmol/l",
-          "massnahme": "PCSK9-Inhibitor oder Bempedoinsäure",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "AGLA – Behandlungsschema sehr hohes Risiko",
-          "indikation": "Therapie kontrolliert fortsetzen",
-          "massnahme": "LDL-C-Kontrolle 1×/Jahr; häufiger bei entsprechender klinischer Situation",
-          "bild": 1,
-          "kapitel": "Therapie"
+          "suchtext": "Start Hochwirksames Statin (Rosuvastatin, Pitavastatin, Atorvastatin) · LDL-C <1,4 mmol/l und Senkung ≥50 % Therapie kontrolliert fortsetzen · Ziel nicht erreicht, keine manifeste ASCVD Ezetimib · Ziel nicht erreicht, manifeste ASCVD, LDL-C ≤1,8 mmol/l Ezetimib · Ziel nicht erreicht, manifeste ASCVD, LDL-C >1,8 mmol/l PCSK9-Inhibitor (siRNA: Inclisiran; mAbs: Alirocumab, Evolocumab) oder Ezetimib · Unter Ezetimib LDL-C ≤1,8 mmol/l Therapie kontrolliert fortsetzen · Unter Ezetimib LDL-C >1,8 mmol/l PCSK9-Inhibitor oder Bempedoinsäure · Therapie kontrolliert fortsetzen LDL-C-Kontrolle 1×/Jahr; häufiger bei entsprechender klinischer Situation"
         }
       ],
       "siehe": [
@@ -1261,7 +1092,7 @@ window.KB = {
         "max": 4
       },
       "hinweise": [
-        "Suche nach Schweregrad z. B. mit «irAE Grad 3». Einträge ohne Grad (Substanz-Übersicht, Abklärungen) bleiben sichtbar.",
+        "Grad-Feld: blendet in «Therapie von irAEs nach CTCAE-Grad» die anderen Grade aus. Grafiken und Abklärungen bleiben sichtbar.",
         "Abklärungen: Fussnoten a–f sind auf der Folie nicht erklärt. Spalten ohne Untersuchung («–») sind weggelassen."
       ],
       "screenshots": [
@@ -1284,75 +1115,22 @@ window.KB = {
       ],
       "eintraege": [
         {
+          "typ": "bild",
+          "kapitel": "Diagnostik",
           "gruppe": "Häufigste klinisch wichtige irAE nach Substanz",
-          "indikation": "PD-1-Blockade (hervorgehoben)",
-          "massnahme": "Hypothyroidism, Pneumonitis, Myocarditis, Arthralgia, Autoimmune diabetes",
-          "notiz": "Ebenfalls dargestellt: Uveitis, Encephalitis, Rash/Dermatitis, Hepatitis, Enteritis, Colitis",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "irAE – abhängig von der Substanz",
           "bild": 0,
-          "kapitel": "Diagnostik"
+          "suchtext": "PD-1-Blockade (hervorgehoben) Hypothyroidism, Pneumonitis, Myocarditis, Arthralgia, Autoimmune diabetes Ebenfalls dargestellt: Uveitis, Encephalitis, Rash/Dermatitis, Hepatitis, Enteritis, Colitis · CTLA-4-/Kombinationsblockade (hervorgehoben) Hypophysitis, Rash/Dermatitis, Enteritis, Colitis Ebenfalls dargestellt: Encephalitis, Uveitis, Hypothyroidism, Pneumonitis, Myocarditis, Arthralgia, Autoimmune diabetes, Hepatitis"
         },
         {
-          "gruppe": "Häufigste klinisch wichtige irAE nach Substanz",
-          "indikation": "CTLA-4-/Kombinationsblockade (hervorgehoben)",
-          "massnahme": "Hypophysitis, Rash/Dermatitis, Enteritis, Colitis",
-          "notiz": "Ebenfalls dargestellt: Encephalitis, Uveitis, Hypothyroidism, Pneumonitis, Myocarditis, Arthralgia, Autoimmune diabetes, Hepatitis",
-          "bild": 0,
-          "kapitel": "Diagnostik"
-        },
-        {
+          "typ": "bild",
+          "kapitel": "Therapie",
           "gruppe": "Verdacht auf irAE – Behandlungsintensität nach Grad",
-          "indikation": "Setting",
-          "massnahme": "Managed in outpatient/community setting (Grade 1–2)",
-          "von": 1,
-          "bis": 2,
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Verdacht auf irAE",
           "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Verdacht auf irAE – Behandlungsintensität nach Grad",
-          "indikation": "Setting",
-          "massnahme": "Needs hospital admission and care (Grade 3–4)",
-          "von": 3,
-          "bis": 4,
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Verdacht auf irAE – Behandlungsintensität nach Grad",
-          "indikation": "Alle Grade",
-          "massnahme": "Symptomatic therapy",
-          "von": 1,
-          "bis": 4,
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Verdacht auf irAE – Behandlungsintensität nach Grad",
-          "indikation": "Ab Grad 2",
-          "massnahme": "Stop treatment*",
-          "notiz": "*For some side effects, treatment can be restarted when they subside",
-          "von": 2,
-          "bis": 4,
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Verdacht auf irAE – Behandlungsintensität nach Grad",
-          "indikation": "Ab Grad 2",
-          "massnahme": "Oral steroids → intravenous steroids started (ab Grad 3)",
-          "von": 2,
-          "bis": 4,
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Verdacht auf irAE – Behandlungsintensität nach Grad",
-          "indikation": "Ab Grad 3",
-          "massnahme": "Referral to specialist (strong immunosuppressive therapy)",
-          "von": 3,
-          "bis": 4,
-          "bild": 1,
-          "kapitel": "Therapie"
+          "suchtext": "Setting Managed in outpatient/community setting (Grade 1–2) · Setting Needs hospital admission and care (Grade 3–4) · Alle Grade Symptomatic therapy · Ab Grad 2 Stop treatment* *For some side effects, treatment can be restarted when they subside · Ab Grad 2 Oral steroids → intravenous steroids started (ab Grad 3) · Ab Grad 3 Referral to specialist (strong immunosuppressive therapy)"
         },
         {
           "gruppe": "Therapie von irAEs nach CTCAE-Grad",
@@ -1619,15 +1397,8 @@ window.KB = {
         "stand": "2025/2026",
         "titel": "2024 ESC GL on AF (Van Gelder IC, et al. EHJ 2024;45:3314-414); Kirchhof P, et al. EHJ 2016;37:2893-962 (adapted); Verma A, et al. Can J Cardiol 2014;30:1114-30; Atzema CL, Singh SM. Cardiol Clin 2018;36:141-59"
       },
-      "parameter": {
-        "name": "LVEF",
-        "einheit": "%",
-        "min": 20,
-        "max": 65
-      },
       "hinweise": [
-        "Frequenzkontrolle: Der linke Pfad gilt bei LVEF <40 % ODER Zeichen der Herzinsuffizienz; er bleibt deshalb bei jeder LVEF-Suche sichtbar. Nur der Pfad «LVEF ≥40 %» wird bei LVEF <40 % ausgeblendet.",
-        "Risikofaktoren: Die Folie nennt links «BD <130/80 mmHg», die ESC-Grafik rechts «120–129 mmHg / 70–79 mmHg». Beides ist so übernommen."
+        "Risikofaktor-Management: Die Folie nennt links «BD <130/80 mmHg», die ESC-Grafik rechts «120–129 mmHg / 70–79 mmHg»."
       ],
       "screenshots": [
         {
@@ -1727,200 +1498,31 @@ window.KB = {
           "kapitel": "Risiko/Klassifikation"
         },
         {
-          "gruppe": "Akute Frequenzkontrolle (acute AF with fast ventricular response)",
-          "indikation": "LVEF <40 % oder Zeichen der Herzinsuffizienz",
-          "massnahme": "Smallest dose of βB to achieve rate control",
+          "typ": "bild",
+          "kapitel": "Therapie",
+          "gruppe": "Akute Frequenzkontrolle",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Acute heart rate control",
           "bild": 1,
-          "kapitel": "Therapie"
+          "suchtext": "LVEF <40 % oder Zeichen der Herzinsuffizienz Smallest dose of βB to achieve rate control · LVEF <40 % oder Zeichen der Herzinsuffizienz Amiodarone is an option in patients with hemodynamic instability and severely reduced LVEF · LVEF ≥40 % βB or ND-CCB (diltiazem or verapamil) · LVEF ≥40 % Check previous drug history to avoid concomitant administration · Beide Pfade Initial resting HR target: <110 bpm · Beide Pfade, danach Add digoxin (if no contraindications); initial resting HR target <110 bpm · Note Avoid bradycardia; perform an echocardiogram to guide further management; consider need for anticoagulation"
         },
         {
-          "gruppe": "Akute Frequenzkontrolle (acute AF with fast ventricular response)",
-          "indikation": "LVEF <40 % oder Zeichen der Herzinsuffizienz",
-          "massnahme": "Amiodarone is an option in patients with hemodynamic instability and severely reduced LVEF",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Akute Frequenzkontrolle (acute AF with fast ventricular response)",
-          "indikation": "LVEF ≥40 %",
-          "massnahme": "βB or ND-CCB (diltiazem or verapamil)",
-          "von": 40,
-          "bis": 100,
-          "bereichText": "≥40 %",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Akute Frequenzkontrolle (acute AF with fast ventricular response)",
-          "indikation": "LVEF ≥40 %",
-          "massnahme": "Check previous drug history to avoid concomitant administration",
-          "von": 40,
-          "bis": 100,
-          "bereichText": "≥40 %",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Akute Frequenzkontrolle (acute AF with fast ventricular response)",
-          "indikation": "Beide Pfade",
-          "massnahme": "Initial resting HR target: <110 bpm",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Akute Frequenzkontrolle (acute AF with fast ventricular response)",
-          "indikation": "Beide Pfade, danach",
-          "massnahme": "Add digoxin (if no contraindications); initial resting HR target <110 bpm",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Akute Frequenzkontrolle (acute AF with fast ventricular response)",
-          "indikation": "Note",
-          "massnahme": "Avoid bradycardia; perform an echocardiogram to guide further management; consider need for anticoagulation",
-          "bild": 1,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "Hämodynamische Instabilität",
-          "massnahme": "Ja → Electrical cardioversion",
+          "typ": "bild",
+          "kapitel": "Therapie",
+          "gruppe": "Kardioversion",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Cardioversion",
           "bild": 3,
-          "kapitel": "Therapie"
+          "suchtext": "Hämodynamische Instabilität Ja → Electrical cardioversion · Keine Instabilität Risk for stroke? Low (1) → Kardioversion; High (2) → TEE · (1) Low risk for stroke (NEU) Clear onset <24 h; therapeutic OAC ≥3 weeks · (2) High risk for stroke Insufficient OAC ≥3 weeks and: onset >24 h or unknown, or mechanical/rheumatic valve, or stroke/TIA <6 months · TEE: intracardiac thrombus OAC and rate control, danach erneut Risk for stroke beurteilen · Kardioversion: Wahl Electrical cardioversion oder pharmacological cardioversion · Pharmakologisch: ischemic or structural heart disease Amiodarone i.v. · Pharmakologisch: no relevant structural heart disease Flecainide / Propafenone i.v. / pitp. Ibutilide i.v. · Nach Kardioversion (alle) Stroke prevention: anticoagulation for ≥4 weeks independent of the CHA₂DS₂-VA score. Long-term rhythm control"
         },
         {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "Keine Instabilität",
-          "massnahme": "Risk for stroke? Low (1) → Kardioversion; High (2) → TEE",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "(1) Low risk for stroke (NEU)",
-          "massnahme": "Clear onset <24 h; therapeutic OAC ≥3 weeks",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "(2) High risk for stroke",
-          "massnahme": "Insufficient OAC ≥3 weeks and: onset >24 h or unknown, or mechanical/rheumatic valve, or stroke/TIA <6 months",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "TEE: intracardiac thrombus",
-          "massnahme": "OAC and rate control, danach erneut Risk for stroke beurteilen",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "Kardioversion: Wahl",
-          "massnahme": "Electrical cardioversion oder pharmacological cardioversion",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "Pharmakologisch: ischemic or structural heart disease",
-          "massnahme": "Amiodarone i.v.",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "Pharmakologisch: no relevant structural heart disease",
-          "massnahme": "Flecainide / Propafenone i.v. / pitp. Ibutilide i.v.",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kardioversion (recent onset AF)",
-          "indikation": "Nach Kardioversion (alle)",
-          "massnahme": "Stroke prevention: anticoagulation for ≥4 weeks independent of the CHA₂DS₂-VA score. Long-term rhythm control",
-          "bild": 3,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Alle",
-          "massnahme": "Integrated management: identify and actively manage all risk factors and comorbidities",
-          "klasse": "I",
+          "typ": "bild",
+          "kapitel": "Therapie",
+          "gruppe": "Risikofaktor-Management (integrated care model)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Integrated care model for AF management",
           "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "AHT",
-          "massnahme": "BD <130/80 mmHg",
-          "notiz": "ESC-Grafik: Blood pressure treatment with target 120–129 mmHg / 70–79 mmHg in most adults (or as low as reasonably achievable)",
-          "klasse": "I",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Heart failure",
-          "massnahme": "OMT, SGLT2i",
-          "notiz": "ESC-Grafik: Optimize with diuretics to alleviate congestion appropriate, medical therapy for reduced LVEF, and SGLT2 inhibitors for all LVEF",
-          "klasse": "I",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Diabetes",
-          "massnahme": "Glycemic control",
-          "notiz": "ESC-Grafik: Effective glycaemic control with diet/medication(s)",
-          "klasse": "I",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Alcohol intake",
-          "massnahme": "≤3 drinks/week",
-          "notiz": "ESC-Grafik: Reduce alcohol consumption to 3 or less standard drinks per week",
-          "klasse": "I",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Obesity",
-          "massnahme": "Weight loss >10%",
-          "notiz": "ESC-Grafik: Weight loss programme if overweight/obese, with 10% or more weight loss",
-          "klasse": "I",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Sleep apnea",
-          "massnahme": "CPAP",
-          "notiz": "ESC-Grafik: Management of obstructive sleep apnoea to minimize apnoeic episodes",
-          "klasse": "IIb",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Physical activity",
-          "massnahme": "Regular activity",
-          "notiz": "ESC-Grafik: Tailored exercise programme aiming for regular moderate/vigorous activity",
-          "klasse": "I",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target",
-          "indikation": "Vorgehen (ESC-Grafik)",
-          "massnahme": "Setting individual targets for comorbidities and risk factors; behavioural change: shared decision-making, focus on key risk factors, achievable targets, provide information without overloading",
-          "bild": 2,
-          "kapitel": "Therapie"
+          "suchtext": "Alle Integrated management: identify and actively manage all risk factors and comorbidities · AHT BD <130/80 mmHg ESC-Grafik: Blood pressure treatment with target 120–129 mmHg / 70–79 mmHg in most adults (or as low as reasonably achievable) · Heart failure OMT, SGLT2i ESC-Grafik: Optimize with diuretics to alleviate congestion appropriate, medical therapy for reduced LVEF, and SGLT2 inhibitors for all LVEF · Diabetes Glycemic control ESC-Grafik: Effective glycaemic control with diet/medication(s) · Alcohol intake ≤3 drinks/week ESC-Grafik: Reduce alcohol consumption to 3 or less standard drinks per week · Obesity Weight loss >10% ESC-Grafik: Weight loss programme if overweight/obese, with 10% or more weight loss · Sleep apnea CPAP ESC-Grafik: Management of obstructive sleep apnoea to minimize apnoeic episodes · Physical activity Regular activity ESC-Grafik: Tailored exercise programme aiming for regular moderate/vigorous activity · Vorgehen (ESC-Grafik) Setting individual targets for comorbidities and risk factors; behavioural change: shared decision-making, focus on key risk factors, achievable targets, provide information without overloading"
         }
       ],
       "siehe": [
@@ -1965,8 +1567,7 @@ window.KB = {
         "titel": "ESC-Algorithmus (erhöhter Blutdruck); www.bpmodel.org"
       },
       "hinweise": [
-        "Risikostratifizierung: Flussdiagramm in Textzeilen übertragen; der Behandlungspfad heisst hier «Lifestyle + nach 3 Monaten medikamentös», der Beobachtungspfad «Lifestyle + Reassessment».",
-        "Kombinationstabelle: Werte als Zahl (Bereich) übernommen. Die Einheit steht nicht auf der Folie. Der Farbcode (Efficacy: low / moderate / high intensity) ist nur auf der Originalfolie zu sehen."
+        "Kombinationstabelle (bpmodel.org): Die Einheit steht nicht auf der Folie."
       ],
       "screenshots": [
         {
@@ -1984,83 +1585,13 @@ window.KB = {
       ],
       "eintraege": [
         {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "Definition",
-          "massnahme": "Patient with elevated BP*: office SBP 120–139 mmHg or DBP 70–89 mmHg",
-          "notiz": "*Exercise caution when considering treating persons with elevated BP and: moderate-to-severe frailty; symptomatic orthostatic hypotension; age ≥85 years",
+          "typ": "bild",
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung (ESC)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Erhöhter Blutdruck – Risikostratifizierung (ESC)",
           "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "Schritt 1",
-          "massnahme": "Established CVD, moderate/severe CKD, HMOD, DM, or FH?",
-          "klasse": "I",
-          "notiz": "Ja → weiter zu «Patient with T2DM (only) and <60 years old?». Nein → SCORE2 bzw. SCORE2-OP",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "Schritt 1: Ja",
-          "massnahme": "Patient with T2DM (only) and <60 years old? Ja → Calculate SCORE2-Diabetes. Nein → Behandlungspfad",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "Schritt 1: Nein",
-          "massnahme": "Calculate SCORE2 or SCORE2-OP",
-          "klasse": "I",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "T2DM (only), <60 Jahre",
-          "massnahme": "Calculate SCORE2-Diabetes",
-          "klasse": "IIa",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "10-year predicted CVD risk ≥10 %",
-          "massnahme": "Behandlungspfad: Lifestyle measures to reduce BP (Class I); after 3 months of lifestyle measures, pharmacological treatment for patients with ≥130/80 mmHg (Class I)",
-          "klasse": "I",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "10-year predicted CVD risk <5 %",
-          "massnahme": "Lifestyle measures to reduce BP (Class I); reassess risk/BP one year later (Class IIa)",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "10-year predicted CVD risk 5 % – <10 %",
-          "massnahme": "Consider shared risk modifiers: high-risk ethnicity; family history of premature onset ASCVD; socio-economic deprivation; auto-immune diseases; severe mental illness; HIV. Ja → Behandlungspfad",
-          "klasse": "IIa",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "5 % – <10 %, keine gemeinsamen Risikomodifikatoren",
-          "massnahme": "Consider sex-specific risk modifiers: gestational diabetes; gestational hypertension; pre-eclampsia; pre-term delivery; one or more still births; recurrent miscarriage. Ja → Behandlungspfad",
-          "klasse": "IIa",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
-        },
-        {
-          "gruppe": "Erhöhter Blutdruck – Risikostratifizierung",
-          "indikation": "Weiterhin unklar",
-          "massnahme": "If still uncertain, shared decision-making informed by risk tools: CAC score; carotid or femoral plaque; high-sensitivity cardiac troponin; NT-proBNP; pulse wave velocity. Abnormal → Behandlungspfad; nicht abnormal → Lifestyle + Reassessment nach 1 Jahr",
-          "klasse": "IIb",
-          "bild": 0,
-          "kapitel": "Risiko/Klassifikation"
+          "suchtext": "Definition Patient with elevated BP*: office SBP 120–139 mmHg or DBP 70–89 mmHg *Exercise caution when considering treating persons with elevated BP and: moderate-to-severe frailty; symptomatic orthostatic hypotension; age ≥85 years · Schritt 1 Established CVD, moderate/severe CKD, HMOD, DM, or FH? Ja → weiter zu «Patient with T2DM (only) and <60 years old?». Nein → SCORE2 bzw. SCORE2-OP · Schritt 1: Ja Patient with T2DM (only) and <60 years old? Ja → Calculate SCORE2-Diabetes. Nein → Behandlungspfad · Schritt 1: Nein Calculate SCORE2 or SCORE2-OP · T2DM (only), <60 Jahre Calculate SCORE2-Diabetes · 10-year predicted CVD risk ≥10 % Behandlungspfad: Lifestyle measures to reduce BP (Class I); after 3 months of lifestyle measures, pharmacological treatment for patients with ≥130/80 mmHg (Class I) · 10-year predicted CVD risk <5 % Lifestyle measures to reduce BP (Class I); reassess risk/BP one year later (Class IIa) · 10-year predicted CVD risk 5 % – <10 % Consider shared risk modifiers: high-risk ethnicity; family history of premature onset ASCVD; socio-economic deprivation; auto-immune diseases; severe mental illness; HIV. Ja → Behandlungspfad · 5 % – <10 %, keine gemeinsamen Risikomodifikatoren Consider sex-specific risk modifiers: gestational diabetes; gestational hypertension; pre-eclampsia; pre-term delivery; one or more still births; recurrent miscarriage. Ja → Behandlungspfad · Weiterhin unklar If still uncertain, shared decision-making informed by risk tools: CAC score; carotid or femoral plaque; high-sensitivity cardiac troponin; NT-proBNP; pulse wave velocity. Abnormal → Behandlungspfad; nicht abnormal → Lifestyle + Reassessment nach 1 Jahr"
         },
         {
           "gruppe": "Baseline assessment",
@@ -2084,74 +1615,13 @@ window.KB = {
           "kapitel": "Diagnostik"
         },
         {
+          "typ": "bild",
+          "kapitel": "Therapie",
           "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "Spalten",
-          "massnahme": "None 0 mg · Losartan 50 / 100 mg · Lisinopril 10 / 20 mg · Metoprolol 50 / 100 mg",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Therapie: Medikamente (bpmodel.org)",
           "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 0 mg + Amlodipin 0 mg",
-          "massnahme": "None: – · Losartan 50: 7 (6–8) · Losartan 100: 8 (7–9) · Lisinopril 10: 7 (6–8) · Lisinopril 20: 10 (7–11) · Metoprolol 50: 7 (5–8) · Metoprolol 100: 7 (6–8)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 0 mg + Amlodipin 5 mg",
-          "massnahme": "None: 9 (8–10) · Losartan 50: 15 (13–16) · Losartan 100: 16 (14–17) · Lisinopril 10: 15 (13–16) · Lisinopril 20: 18 (15–19) · Metoprolol 50: 15 (13–16) · Metoprolol 100: 15 (14–17)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 0 mg + Amlodipin 10 mg",
-          "massnahme": "None: 12 (10–15) · Losartan 50: 18 (15–19) · Losartan 100: 19 (16–21) · Lisinopril 10: 18 (16–20) · Lisinopril 20: 21 (17–22) · Metoprolol 50: 18 (16–20) · Metoprolol 100: 18 (16–21)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 12,5 mg + Amlodipin 0 mg",
-          "massnahme": "None: 6 (5–7) · Losartan 50: 12 (11–13) · Losartan 100: 13 (12–14) · Lisinopril 10: 12 (11–13) · Lisinopril 20: 15 (13–16) · Metoprolol 50: 12 (11–13) · Metoprolol 100: 12 (11–14)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 12,5 mg + Amlodipin 5 mg",
-          "massnahme": "None: 14 (13–15) · Losartan 50: 19 (17–20) · Losartan 100: 20 (18–21) · Lisinopril 10: 20 (18–21) · Lisinopril 20: 22 (19–24) · Metoprolol 50: 19 (17–21) · Metoprolol 100: 20 (17–21)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 12,5 mg + Amlodipin 10 mg",
-          "massnahme": "None: 17 (15–19) · Losartan 50: 22 (19–24) · Losartan 100: 23 (20–25) · Lisinopril 10: 22 (20–24) · Lisinopril 20: 25 (21–27) · Metoprolol 50: 22 (19–24) · Metoprolol 100: 22 (19–24)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 25 mg + Amlodipin 0 mg",
-          "massnahme": "None: 8 (7–9) · Losartan 50: 14 (12–15) · Losartan 100: 15 (13–16) · Lisinopril 10: 14 (12–15) · Lisinopril 20: 17 (15–18) · Metoprolol 50: 14 (12–15) · Metoprolol 100: 14 (12–15)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 25 mg + Amlodipin 5 mg",
-          "massnahme": "None: 16 (14–17) · Losartan 50: 21 (19–22) · Losartan 100: 22 (19–23) · Lisinopril 10: 21 (19–22) · Lisinopril 20: 24 (21–25) · Metoprolol 50: 21 (19–22) · Metoprolol 100: 21 (18–23)",
-          "bild": 2,
-          "kapitel": "Therapie"
-        },
-        {
-          "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
-          "indikation": "HCT 25 mg + Amlodipin 10 mg",
-          "massnahme": "None: 19 (17–21) · Losartan 50: 23 (20–25) · Losartan 100: 24 (21–26) · Lisinopril 10: 24 (21–25) · Lisinopril 20: 26 (22–28) · Metoprolol 50: 23 (20–25) · Metoprolol 100: 23 (20–25)",
-          "bild": 2,
-          "kapitel": "Therapie"
+          "suchtext": "Spalten None 0 mg · Losartan 50 / 100 mg · Lisinopril 10 / 20 mg · Metoprolol 50 / 100 mg · HCT 0 mg + Amlodipin 0 mg None: – · Losartan 50: 7 (6–8) · Losartan 100: 8 (7–9) · Lisinopril 10: 7 (6–8) · Lisinopril 20: 10 (7–11) · Metoprolol 50: 7 (5–8) · Metoprolol 100: 7 (6–8) · HCT 0 mg + Amlodipin 5 mg None: 9 (8–10) · Losartan 50: 15 (13–16) · Losartan 100: 16 (14–17) · Lisinopril 10: 15 (13–16) · Lisinopril 20: 18 (15–19) · Metoprolol 50: 15 (13–16) · Metoprolol 100: 15 (14–17) · HCT 0 mg + Amlodipin 10 mg None: 12 (10–15) · Losartan 50: 18 (15–19) · Losartan 100: 19 (16–21) · Lisinopril 10: 18 (16–20) · Lisinopril 20: 21 (17–22) · Metoprolol 50: 18 (16–20) · Metoprolol 100: 18 (16–21) · HCT 12,5 mg + Amlodipin 0 mg None: 6 (5–7) · Losartan 50: 12 (11–13) · Losartan 100: 13 (12–14) · Lisinopril 10: 12 (11–13) · Lisinopril 20: 15 (13–16) · Metoprolol 50: 12 (11–13) · Metoprolol 100: 12 (11–14) · HCT 12,5 mg + Amlodipin 5 mg None: 14 (13–15) · Losartan 50: 19 (17–20) · Losartan 100: 20 (18–21) · Lisinopril 10: 20 (18–21) · Lisinopril 20: 22 (19–24) · Metoprolol 50: 19 (17–21) · Metoprolol 100: 20 (17–21) · HCT 12,5 mg + Amlodipin 10 mg None: 17 (15–19) · Losartan 50: 22 (19–24) · Losartan 100: 23 (20–25) · Lisinopril 10: 22 (20–24) · Lisinopril 20: 25 (21–27) · Metoprolol 50: 22 (19–24) · Metoprolol 100: 22 (19–24) · HCT 25 mg + Amlodipin 0 mg None: 8 (7–9) · Losartan 50: 14 (12–15) · Losartan 100: 15 (13–16) · Lisinopril 10: 14 (12–15) · Lisinopril 20: 17 (15–18) · Metoprolol 50: 14 (12–15) · Metoprolol 100: 14 (12–15) · HCT 25 mg + Amlodipin 5 mg None: 16 (14–17) · Losartan 50: 21 (19–22) · Losartan 100: 22 (19–23) · Lisinopril 10: 21 (19–22) · Lisinopril 20: 24 (21–25) · Metoprolol 50: 21 (19–22) · Metoprolol 100: 21 (18–23) · HCT 25 mg + Amlodipin 10 mg None: 19 (17–21) · Losartan 50: 23 (20–25) · Losartan 100: 24 (21–26) · Lisinopril 10: 24 (21–25) · Lisinopril 20: 26 (22–28) · Metoprolol 50: 23 (20–25) · Metoprolol 100: 23 (20–25)"
         }
       ],
       "synonyme": [
@@ -2206,7 +1676,6 @@ window.KB = {
       },
       "hinweise": [
         "Abkürzungen: UFH = unfraktioniertes Heparin; NMH = niedermolekulares Heparin; Xabane = Apixaban, Rivaroxaban, Edoxaban; NVHF = nichtvalvuläres Vorhofflimmern.",
-        "Spalten der Folie: Thrombose/LE · VHF · Mechanischer Klappenersatz · Monitoring.",
         "Die Folie ist rechts abgeschnitten; die Fortsetzung des Algorithmus (Pfeil nach rechts) ist nicht sichtbar."
       ],
       "screenshots": [
@@ -2270,54 +1739,13 @@ window.KB = {
           "kapitel": "Therapie"
         },
         {
-          "gruppe": "DOAK vor dringlicher OP – Abklärung",
-          "indikation": "History",
-          "massnahme": "Verify intake of direct FXa inhibitors or direct thrombin inhibitor and direct evidence by lab tests (e.g. calibrated anti-FXa activity or (diluted) thrombin time for dabigatran). Check for concomitant bleeding disorders or intake of platelet inhibitors.",
+          "typ": "bild",
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "DOAK vor dringlicher OP (ESAIC)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Patients with confirmed intake of DOACs before urgent surgery",
           "bild": 1,
-          "kapitel": "Spezielle Situationen"
-        },
-        {
-          "gruppe": "DOAK vor dringlicher OP – Abklärung",
-          "indikation": "Beratung",
-          "massnahme": "Seek advice from thrombosis and haemostasis service",
-          "bild": 1,
-          "kapitel": "Spezielle Situationen"
-        },
-        {
-          "gruppe": "DOAK vor dringlicher OP – Abklärung",
-          "indikation": "Blood sampling",
-          "massnahme": "PT, PT-ratio, aPTT, thrombin time (for dabigatran), calibrated anti-FXa activity, point of care coagulation monitoring (if available), creatinine (GFR), fibrinogen, D-dimers and platelet count on admission",
-          "bild": 1,
-          "kapitel": "Spezielle Situationen"
-        },
-        {
-          "gruppe": "DOAK vor dringlicher OP – Abklärung",
-          "indikation": "Important",
-          "massnahme": "Draw blood samples before treatment, but treatment must not be delayed by waiting for lab results.",
-          "bild": 1,
-          "kapitel": "Spezielle Situationen"
-        },
-        {
-          "gruppe": "DOAK vor dringlicher OP – Antagonisierung nach Substanz",
-          "indikation": "Apixaban, rivaroxaban",
-          "massnahme": "1. Consider «wait and see» strategy if clinically appropriate; stimulate diuresis; 2. Andexanet alfa or PCC; 3. aPCC, if both drugs are unavailable.",
-          "bild": 1,
-          "kapitel": "Spezielle Situationen"
-        },
-        {
-          "gruppe": "DOAK vor dringlicher OP – Antagonisierung nach Substanz",
-          "indikation": "Dabigatran",
-          "massnahme": "1. Consider «wait and see» strategy if clinically appropriate; stimulate diuresis; 2. Idarucizumab; 3. PCC or aPCC, if idarucizumab is unavailable.",
-          "bild": 1,
-          "kapitel": "Spezielle Situationen"
-        },
-        {
-          "gruppe": "DOAK vor dringlicher OP – Antagonisierung nach Substanz",
-          "indikation": "Edoxaban*",
-          "massnahme": "1. Consider «wait and see» strategy if clinically appropriate; stimulate diuresis; 2. PCC; 3. aPCC, if PCC is not available.",
-          "notiz": "*Andexanet alfa not approved as of February 2024",
-          "bild": 1,
-          "kapitel": "Spezielle Situationen"
+          "suchtext": "History Verify intake of direct FXa inhibitors or direct thrombin inhibitor and direct evidence by lab tests (e.g. calibrated anti-FXa activity or (diluted) thrombin time for dabigatran). Check for concomitant bleeding disorders or intake of platelet inhibitors. · Beratung Seek advice from thrombosis and haemostasis service · Blood sampling PT, PT-ratio, aPTT, thrombin time (for dabigatran), calibrated anti-FXa activity, point of care coagulation monitoring (if available), creatinine (GFR), fibrinogen, D-dimers and platelet count on admission · Important Draw blood samples before treatment, but treatment must not be delayed by waiting for lab results. · Apixaban, rivaroxaban 1. Consider «wait and see» strategy if clinically appropriate; stimulate diuresis; 2. Andexanet alfa or PCC; 3. aPCC, if both drugs are unavailable. · Dabigatran 1. Consider «wait and see» strategy if clinically appropriate; stimulate diuresis; 2. Idarucizumab; 3. PCC or aPCC, if idarucizumab is unavailable. · Edoxaban* 1. Consider «wait and see» strategy if clinically appropriate; stimulate diuresis; 2. PCC; 3. aPCC, if PCC is not available. *Andexanet alfa not approved as of February 2024"
         }
       ],
       "siehe": [

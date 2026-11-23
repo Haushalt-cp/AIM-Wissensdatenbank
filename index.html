@@ -110,6 +110,10 @@ sup { color: var(--muted); font-size: 10px; }
 .see a { font-weight: 500; }
 .hidden-info { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
 ul.hints { margin: 6px 0 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
+figure.flow { margin: 6px 0 4px; display: grid; gap: 4px; }
+figure.flow img { width: 100%; max-width: 820px; border: 1px solid var(--line); border-radius: 6px; background: #fff; cursor: zoom-in; }
+figure.flow figcaption { font-size: 12px; color: var(--muted); }
+dialog .cap a { color: #fff; }
 .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 10px; }
 .shots figure { margin: 0; display: grid; gap: 4px; }
 .shots img { max-width: 100%; border: 1px solid var(--line); border-radius: 6px; cursor: zoom-in; background: #fff; }
@@ -149,7 +153,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
 </div>
 
 <dialog id="lb">
-  <div class="cap"><span id="lbcap"></span><button type="button" id="lbclose">Schliessen</button></div>
+  <div class="cap"><span id="lbcap"></span><span><a id="lbfull" href="#" target="_blank" rel="noopener">Originalgrösse</a> <button type="button" id="lbclose">Schliessen</button></span></div>
   <img id="lbimg" alt="">
 </dialog>
 
@@ -193,7 +197,13 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   }
   function applies(t, e, val) { return val == null || !t.parameter || !hasRange(e) || (val >= e.von && val <= e.bis); }
 
+  function figureBlock(t, e) {
+    const s = t.screenshots[e.bild];
+    return '<figure class="flow"><img src="' + esc(s.datei) + '" alt="' + esc(s.titel) + '" data-t="' + esc(t.id) + '" data-b="' + e.bild + '" loading="lazy"><figcaption>Antippen zum Vergrössern</figcaption></figure>';
+  }
+
   function itemRow(t, e, val) {
+    if (e.typ === "bild") return figureBlock(t, e);
     const side = (t.parameter && hasRange(e) ? bar(t, e, val) + '<span class="num">' + esc(rangeText(t, e)) + "</span>" : "") + (e.klasse ? badge(e.klasse) : "");
     return '<div class="it' + (applies(t, e, val) ? "" : " off") + '"><div class="ind">' + esc(e.indikation) + '</div><div class="mass">' + esc(e.massnahme) +
       (e.fussnote ? "<sup>" + esc(e.fussnote) + "</sup>" : "") + (e.notiz ? '<span class="note">' + esc(e.notiz) + "</span>" : "") +
@@ -288,7 +298,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     const tokens = s.split(/[^a-zäöüéèàß0-9\/\-₂]+/i).filter((w) => w.length >= 2 && !STOP.has(w));
     return { params, bare, tokens };
   }
-  const itemHay = (e) => norm([e.gruppe, e.indikation, e.massnahme, e.notiz].join(" "));
+  const itemHay = (e) => norm([e.gruppe, e.indikation, e.massnahme, e.notiz, e.suchtext].join(" "));
   // Ein Wort öffnet ein Krankheitsbild nur, wenn es dessen Name oder ein Synonym ist (nicht bei Substanzen)
   function tokInTopic(tok, t) {
     const names = [norm(t.titel)].concat((t.synonyme || []).map(norm));
@@ -298,7 +308,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   function hitList(hits) {
     return '<div class="hits">' + hits.slice(0, 60).map(({ t, e }) =>
       '<a class="hit" href="#t-' + esc(t.id) + "--" + SLUG[e.kapitel] + '"><span class="path">' + esc(t.titel) + " › " + esc(e.kapitel) + " › " + esc(e.gruppe) + '</span><span class="txt">' +
-      (e.indikation && e.indikation !== "—" ? esc(e.indikation) + ": " : "") + esc(e.massnahme) + "</span></a>").join("") + "</div>";
+      (e.typ === "bild" ? "Flowchart/Grafik: " + esc(e.massnahme) : (e.indikation && e.indikation !== "—" ? esc(e.indikation) + ": " : "") + esc(e.massnahme)) + "</span></a>").join("") + "</div>";
   }
 
   function renderSearch(str) {
@@ -359,7 +369,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     if (!img) return;
     const t = byId(img.dataset.t), s = t && t.screenshots[+img.dataset.b];
     if (!s) return;
-    $("#lbimg").src = s.datei; $("#lbimg").alt = s.titel; $("#lbcap").textContent = t.titel + " · " + s.titel;
+    $("#lbimg").src = s.datei; $("#lbimg").alt = s.titel; $("#lbfull").href = s.datei; $("#lbcap").textContent = t.titel + " · " + s.titel;
     try { lb.showModal(); } catch (e) { lb.setAttribute("open", ""); }
   });
   $("#lbclose").addEventListener("click", () => lb.close());
