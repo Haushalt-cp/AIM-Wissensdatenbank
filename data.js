@@ -893,7 +893,7 @@ window.KB = {
     {
       "id": "dyslipidaemie",
       "titel": "Dyslipidämie (LDL-C-Senkung)",
-      "fachgebiet": "Kardiologie / Prävention",
+      "fachgebiet": "Kardiologie",
       "tags": [
         "lipide",
         "lipidtherapie",

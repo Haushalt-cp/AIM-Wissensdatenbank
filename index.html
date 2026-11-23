@@ -68,6 +68,17 @@ h2.fg { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spa
 .topic-link:hover { border-color: var(--accent); }
 .topic-link b { font-weight: 600; }
 
+/* Kacheln */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.tile { font: inherit; text-align: left; display: grid; gap: 4px; align-content: start; min-height: 78px; padding: 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.tile b { font-weight: 600; font-size: 15px; line-height: 1.25; }
+.tile span { font-size: 12.5px; color: var(--muted); }
+.tile:hover { border-color: var(--accent); }
+.tile[aria-expanded="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.backbar { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 8px 0; background: var(--bg); }
+.backbar button { font: inherit; font-size: 15px; border: 1px solid var(--line); background: var(--surface); color: var(--accent); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+.backbar .back { font-weight: 600; }
+
 /* Fundstellen */
 .hits { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 4px 14px; }
 .hit { display: block; padding: 8px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); }
@@ -129,7 +140,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   #q { font-size: 16px; }
   .page-head { padding: 12px 12px 8px; }
   .page-head h2 { font-size: 18px; }
-  .tabs { padding: 0 4px; }
+  .tabs { padding: 0 4px; flex-wrap: wrap; overflow-x: visible; }
   .tabs button { padding: 9px 8px 8px; font-size: 13.5px; }
   .content { padding: 4px 12px 14px; }
   .it { grid-template-columns: 1fr auto; grid-template-areas: "mass side" "ind ind"; gap: 1px 10px; }
@@ -211,7 +222,6 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   }
 
   // ---------- Krankheitsbild-Seite
-  const state = { id: null, kap: null, val: null };
 
   function tabsFor(t) {
     const list = KAP.filter((k) => t.eintraege.some((e) => e.kapitel === k) || (t.siehe || []).some((s) => s.kapitel === k));
@@ -225,7 +235,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     const tabs = tabsFor(t);
     if (!kap || !tabs.includes(kap)) kap = tabs[0];
     if (!t.parameter) val = null;
-    Object.assign(state, { id, kap, val });
+    cur.kap = kap; cur.val = val;
     const s = t.quelle || {};
     const p = t.parameter;
     let html = '<article class="page"><div class="page-head"><h2>' + esc(t.titel) + '</h2><div class="meta"><span>' + esc(t.fachgebiet) + "</span>" +
@@ -238,13 +248,13 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
       const n = k === "Folien" ? t.screenshots.length : t.eintraege.filter((e) => e.kapitel === k && applies(t, e, val)).length;
       return '<button type="button" role="tab" data-kap="' + esc(k) + '" aria-selected="' + (k === kap) + '">' + esc(k) + (n ? '<span class="n">' + n + "</span>" : "") + "</button>";
     }).join("") + '</div><div class="content" role="tabpanel">' + renderKapitel(t, kap, val) + "</div></article>";
-    out.innerHTML = html;
+    out.innerHTML = backBar() + html;
 
-    out.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("click", () => { renderPage(id, b.dataset.kap, state.val); setHash(id, b.dataset.kap); }));
+    out.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("click", () => { cur.kap = b.dataset.kap; render(); }));
     const pv = $("#pv");
     if (pv) {
-      pv.addEventListener("change", () => { const v = pv.value === "" ? null : +pv.value; renderPage(id, state.kap, v); const n = $("#pv"); if (n) n.focus(); });
-      const c = $("#pvclear"); if (c) c.addEventListener("click", () => renderPage(id, state.kap, null));
+      pv.addEventListener("change", () => { cur.val = pv.value === "" ? null : +pv.value; render(); const n = $("#pv"); if (n) n.focus(); });
+      const c = $("#pvclear"); if (c) c.addEventListener("click", () => { cur.val = null; render(); });
     }
   }
 
@@ -268,24 +278,27 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     if (classes.length) html += '<div class="legend">Empfehlungsklasse: ' + classes.map(badge).join("") + (classes.includes("I/IIa") ? " (zweifarbig auf der Folie)" : "") + "</div>";
     (t.siehe || []).filter((s) => s.kapitel === kap).forEach((s) => {
       const z = byId(s.ziel);
-      if (z) html += '<div class="see">Siehe auch: <a href="#t-' + esc(z.id) + "--" + SLUG[s.zielKapitel] + '">' + esc(z.titel) + " › " + esc(s.zielKapitel) + "</a> – " + esc(s.text) + "</div>";
+      if (z) html += '<div class="see">Siehe auch: <a href="#" data-open="' + esc(z.id) + '" data-kap="' + esc(s.zielKapitel) + '">' + esc(z.titel) + " › " + esc(s.zielKapitel) + "</a> – " + esc(s.text) + "</div>";
     });
     return html || '<p class="msg" style="margin-top:12px">Keine Einträge.</p>';
   }
 
-  function setHash(id, kap) {
-    const h = "#t-" + id + "--" + SLUG[kap];
-    if (location.hash !== h) { suppress = true; location.hash = h; }
-  }
-  let suppress = false;
 
   // ---------- Startseite
   function renderHome() {
     const groups = {};
     KB.themen.forEach((t) => { (groups[t.fachgebiet] = groups[t.fachgebiet] || []).push(t); });
-    out.innerHTML = Object.keys(groups).sort((a, b) => a.localeCompare(b, "de")).map((g) =>
-      '<section class="topics"><h2 class="fg">' + esc(g) + "</h2>" + groups[g].sort((a, b) => a.titel.localeCompare(b.titel, "de")).map((t) =>
-        '<a class="topic-link" href="#t-' + esc(t.id) + '"><b>' + esc(t.titel) + '</b><span class="sub">' + tabsFor(t).filter((k) => k !== "Folien").join(" · ") + "</span></a>").join("") + "</section>").join("");
+    const names = Object.keys(groups).sort((a, b) => a.localeCompare(b, "de"));
+    let html = '<h2 class="fg">Fachgebiete</h2><div class="tiles">' + names.map((g) =>
+      '<button type="button" class="tile" data-fg="' + esc(g) + '" aria-expanded="' + (cur.fg === g) + '"><b>' + esc(g) + '</b><span>' + groups[g].length + (groups[g].length === 1 ? " Krankheitsbild" : " Krankheitsbilder") + "</span></button>").join("") + "</div>";
+    if (cur.fg && groups[cur.fg]) {
+      html += '<section class="topics"><h2 class="fg">' + esc(cur.fg) + "</h2>" + groups[cur.fg].sort((a, b) => a.titel.localeCompare(b.titel, "de")).map((t) =>
+        '<a class="topic-link" href="#" data-open="' + esc(t.id) + '"><b>' + esc(t.titel) + '</b><span class="sub">' + tabsFor(t).filter((k) => k !== "Folien").join(" · ") + "</span></a>").join("") + "</section>";
+    } else {
+      html += '<p class="msg">Fachgebiet antippen, um die Krankheitsbilder zu sehen.</p>';
+    }
+    out.innerHTML = html;
+    out.querySelectorAll(".tile").forEach((b) => b.addEventListener("click", () => { cur.fg = cur.fg === b.dataset.fg ? null : b.dataset.fg; render(); }));
   }
 
   // ---------- Suche
@@ -307,13 +320,13 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
 
   function hitList(hits) {
     return '<div class="hits">' + hits.slice(0, 60).map(({ t, e }) =>
-      '<a class="hit" href="#t-' + esc(t.id) + "--" + SLUG[e.kapitel] + '"><span class="path">' + esc(t.titel) + " › " + esc(e.kapitel) + " › " + esc(e.gruppe) + '</span><span class="txt">' +
+      '<a class="hit" href="#" data-open="' + esc(t.id) + '" data-kap="' + esc(e.kapitel) + '"><span class="path">' + esc(t.titel) + " › " + esc(e.kapitel) + " › " + esc(e.gruppe) + '</span><span class="txt">' +
       (e.typ === "bild" ? "Flowchart/Grafik: " + esc(e.massnahme) : (e.indikation && e.indikation !== "—" ? esc(e.indikation) + ": " : "") + esc(e.massnahme)) + "</span></a>").join("") + "</div>";
   }
 
   function renderSearch(str) {
     const { params, bare, tokens } = parse(str);
-    if (!tokens.length) { renderHome(); return; }
+    if (!tokens.length) { out.innerHTML = backBar() + '<p class="msg">Suchbegriff eingeben.</p>'; return; }
     const topics = KB.themen.filter((t) => tokens.some((tok) => tokInTopic(tok, t)));
     const contentToks = tokens.filter((tok) => !topics.some((t) => tokInTopic(tok, t)));
     const unknown = tokens.filter((tok) => !KB.themen.some((t) => tokInTopic(tok, t) || t.eintraege.some((e) => itemHay(e).includes(tok))));
@@ -321,8 +334,9 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     // Genau ein Krankheitsbild genannt, sonst nichts: Seite direkt öffnen
     if (topics.length === 1 && !contentToks.length) {
       const t = topics[0];
-      const val = t.parameter ? (params[t.parameter.name] != null ? params[t.parameter.name] : bare) : null;
-      renderPage(t.id, state.id === t.id ? state.kap : null, val);
+      const fromQuery = t.parameter ? (params[t.parameter.name] != null ? params[t.parameter.name] : bare) : null;
+      if (cur.id !== t.id) { cur.id = t.id; cur.kap = null; cur.val = undefined; }
+      renderPage(t.id, cur.kap, cur.val !== undefined ? cur.val : fromQuery);
       const others = [];
       KB.themen.forEach((o) => { if (o !== t) o.eintraege.forEach((e) => { if (tokens.some((tok) => itemHay(e).includes(tok))) others.push({ t: o, e }); }); });
       if (others.length) out.insertAdjacentHTML("beforeend", '<h2 class="fg">Auch erwähnt in anderen Krankheitsbildern</h2>' + hitList(others));
@@ -333,7 +347,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
     if (unknown.length) html += '<p class="msg">Nichts gefunden zu: <b>' + unknown.map(esc).join(", ") + "</b>.</p>";
     if (topics.length) {
       html += '<h2 class="fg">Krankheitsbilder</h2><div class="topics">' + topics.map((t) =>
-        '<a class="topic-link" href="#t-' + esc(t.id) + '"><b>' + esc(t.titel) + '</b><span class="sub">' + esc(t.fachgebiet) + "</span></a>").join("") + "</div>";
+        '<a class="topic-link" href="#" data-open="' + esc(t.id) + '"><b>' + esc(t.titel) + '</b><span class="sub">' + esc(t.fachgebiet) + "</span></a>").join("") + "</div>";
     }
     // Fundstellen: Einträge, die die Suchwörter enthalten (auch Krankheitsbild-Namen in anderen Themen)
     const findToks = contentToks.length ? contentToks : tokens;
@@ -350,18 +364,58 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
       html += '<h2 class="fg">Fundstellen (' + hits.length + ")</h2>" + hitList(hits);
     }
     if (!html) html = '<p class="msg">Keine Einträge gefunden.</p>';
-    out.innerHTML = html;
+    out.innerHTML = backBar() + html;
   }
 
-  // ---------- Navigation
-  function route() {
-    if (q.value.trim()) { renderSearch(q.value); return; }
-    const h = location.hash.replace(/^#/, "");
-    if (h.startsWith("t-")) {
-      const [id, ks] = h.slice(2).split("--");
-      renderPage(id, ks ? UNSLUG[ks] : null, state.id === id ? state.val : null);
-    } else renderHome();
+  // ---------- Navigation: eigener Verlauf, damit «Zurück» immer zur vorherigen Ansicht führt
+  let cur = { type: "home", fg: null };
+  const stack = [];
+
+  function backBar() {
+    return '<div class="backbar"><button type="button" class="back">← Zurück</button><button type="button" class="tohome">Übersicht</button></div>';
   }
+
+  function render() {
+    q.value = cur.type === "search" ? cur.q : "";
+    if (cur.type === "page") renderPage(cur.id, cur.kap, cur.val);
+    else if (cur.type === "search") renderSearch(cur.q);
+    else renderHome();
+    out.querySelectorAll(".back").forEach((b) => b.addEventListener("click", goBack));
+    out.querySelectorAll(".tohome").forEach((b) => b.addEventListener("click", goHome));
+  }
+
+  function navigate(view) {
+    stack.push(cur);
+    cur = view;
+    try { history.pushState({ d: stack.length }, "", location.pathname + "#" + (view.id || view.type)); } catch (e) {}
+    render();
+    window.scrollTo(0, 0);
+  }
+  function goBack() {
+    if (stack.length) { try { history.back(); } catch (e) { popView(); } }
+    else goHome();
+  }
+  function popView() {
+    cur = stack.length ? stack.pop() : { type: "home", fg: null };
+    render();
+    window.scrollTo(0, 0);
+  }
+  function goHome() {
+    const fg = cur.type === "page" && byId(cur.id) ? byId(cur.id).fachgebiet : null;
+    stack.length = 0;
+    cur = { type: "home", fg: fg };
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+    render();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("popstate", popView);
+
+  out.addEventListener("click", (ev) => {
+    const a = ev.target.closest("[data-open]");
+    if (!a) return;
+    ev.preventDefault();
+    navigate({ type: "page", id: a.dataset.open, kap: a.dataset.kap || null, val: null });
+  });
 
   const lb = $("#lb");
   out.addEventListener("click", (ev) => {
@@ -376,13 +430,20 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   lb.addEventListener("click", (ev) => { if (ev.target === lb) lb.close(); });
 
   let timer;
-  q.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(route, 150); });
-  $("#home").addEventListener("click", (ev) => { ev.preventDefault(); q.value = ""; history.replaceState(null, "", location.pathname); route(); });
-  window.addEventListener("hashchange", () => {
-    if (suppress) { suppress = false; return; }
-    q.value = ""; route(); window.scrollTo(0, 0);
+  q.addEventListener("input", () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const v = q.value.trim();
+      if (!v) { if (cur.type === "search") popView(); return; }
+      if (cur.type === "search") { cur.q = q.value; render(); const pos = q.value.length; q.focus(); q.setSelectionRange(pos, pos); }
+      else { navigate({ type: "search", q: q.value }); q.focus(); }
+    }, 150);
   });
-  route();
+  $("#home").addEventListener("click", (ev) => { ev.preventDefault(); stack.length = 0; cur = { type: "home", fg: null }; try { history.replaceState(null, "", location.pathname); } catch (e) {} render(); });
+
+  // Start immer auf der Übersicht
+  try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  render();
 })();
 </script>
 </body>
