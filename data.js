@@ -250,14 +250,15 @@ window.KB = {
       id: "onko-irae",
       titel: "Immuntherapie – immunvermittelte Nebenwirkungen (irAE)",
       fachgebiet: "Onkologie",
-      tags: ["irae", "immuntherapie", "checkpoint", "checkpoint-inhibitor", "pd-1", "ctla-4", "immunvermittelt", "nebenwirkungen", "ctcae", "onkologie", "kolitis", "hypophysitis", "pneumonitis", "myokarditis"],
-      quelle: { typ: "Vortrag (FOMF)", stand: "2025/2026", titel: "Dougan M, et al. Cell 2021;184(6):1575-88; Michot JM, et al. Eur J Cancer 2016;54:139-48; ESMO Patient Guide Immunotherapy Side Effects" },
+      tags: ["irae", "immuntherapie", "checkpoint", "checkpoint-inhibitor", "pd-1", "ctla-4", "immunvermittelt", "nebenwirkungen", "ctcae", "onkologie", "kolitis", "hypophysitis", "pneumonitis", "myokarditis", "ici", "monitoring"],
+      quelle: { typ: "Vortrag (FOMF)", stand: "2025/2026", titel: "Dougan M, et al. Cell 2021;184(6):1575-88; Michot JM, et al. Eur J Cancer 2016;54:139-48; ESMO Patient Guide Immunotherapy Side Effects; Özdemir BC, et al. Cancer Immunol Immunother 2023;72(7):1991-2001" },
       parameter: { name: "Grad", einheit: "", min: 1, max: 4 },
-      hinweise: ["Suche nach Schweregrad z. B. mit «irAE Grad 3». Einträge ohne Grad (Substanz-Übersicht) bleiben sichtbar."],
+      hinweise: ["Suche nach Schweregrad z. B. mit «irAE Grad 3». Einträge ohne Grad (Substanz-Übersicht, Abklärungen) bleiben sichtbar.", "Abklärungen: Fussnoten a–f sind auf der Folie nicht erklärt. Spalten ohne Untersuchung («–») sind weggelassen."],
       screenshots: [
         { datei: "img/onko-irae-substanz.png", titel: "irAE – abhängig von der Substanz" },
         { datei: "img/onko-irae-grade.png", titel: "Verdacht auf irAE" },
-        { datei: "img/onko-irae-therapie.png", titel: "Therapie von irAEs" }
+        { datei: "img/onko-irae-therapie.png", titel: "Therapie von irAEs" },
+        { datei: "img/onko-irae-abklaerungen.png", titel: "Abklärungen vor/unter Immuntherapie" }
       ],
       eintraege: [
         { gruppe: "Häufigste klinisch wichtige irAE nach Substanz", indikation: "PD-1-Blockade (hervorgehoben)", massnahme: "Hypothyroidism, Pneumonitis, Myocarditis, Arthralgia, Autoimmune diabetes", notiz: "Ebenfalls dargestellt: Uveitis, Encephalitis, Rash/Dermatitis, Hepatitis, Enteritis, Colitis", bild: 0 },
@@ -285,7 +286,129 @@ window.KB = {
         { gruppe: "Therapie von irAEs nach CTCAE-Grad", indikation: "Grad 4 – Management", massnahme: "Hospitalisation (ev. IPS)", von: 4, bis: 4, bild: 2 },
         { gruppe: "Therapie von irAEs nach CTCAE-Grad", indikation: "Grad 4 – Kortikosteroide", massnahme: "Systemisch, i.v. (1–2 mg/kg/d)", von: 4, bis: 4, bild: 2 },
         { gruppe: "Therapie von irAEs nach CTCAE-Grad", indikation: "Grad 4 – Weitere Immunsuppressiva", massnahme: "Ggf., falls keine Besserung nach 3–5 Tagen unter Steroiden", von: 4, bis: 4, bild: 2 },
-        { gruppe: "Therapie von irAEs nach CTCAE-Grad", indikation: "Grad 4 – Immuntherapie", massnahme: "Absetzen", von: 4, bis: 4, bild: 2 }
+        { gruppe: "Therapie von irAEs nach CTCAE-Grad", indikation: "Grad 4 – Immuntherapie", massnahme: "Absetzen", von: 4, bis: 4, bild: 2 },
+
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Liver", massnahme: "Baseline: AST, ALT, GGT, ALP, total bilirubin · Erste 3 Monate, jede ICI-Gabe: AST, ALT, GGT, ALP, total bilirubin · Nach 3 Monaten, alle 4–6 Wochen: AST, ALT, GGT, ALP, total bilirubin", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Endocrine function", massnahme: "Baseline: Cortisol, TSH, fT3, fT4, AMH (a), FSH, LH, Estradiol (b), Glucose, HbA1c · Erste 3 Monate, jede ICI-Gabe: TSH, fT4, fT3 · Nach 3 Monaten, alle 4–6 Wochen: AMH, FSH, LH, Estradiol, HbA1c · Nach 3 Monaten, alle 3–6 Monate: TSH, fT4, fT3", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Heart", massnahme: "Baseline: ECG, CK, Troponin T and I, Echocardiography (c) · Erste 3 Monate, jede ICI-Gabe: CK, Troponin T and I (d) · Nach 3 Monaten, alle 4–6 Wochen: CK, Troponin T (d)", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Kidney", massnahme: "Baseline: Creatinine, Urea, Urine dipstick · Erste 3 Monate, jede ICI-Gabe: Creatinine, Urea · Nach 3 Monaten, alle 4–6 Wochen: Creatinine, Urea · Nach 3 Monaten, alle 3–6 Monate: Urine dipstick", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Fluid and electrolyte balance", massnahme: "Baseline: Sodium, Potassium · Erste 3 Monate, jede ICI-Gabe: Sodium, Potassium · Nach 3 Monaten, alle 4–6 Wochen: Sodium, Potassium", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Bone metabolism", massnahme: "Baseline: Calcium, Albumin, Vitamin D3 · Nach 3 Monaten, alle 3–6 Monate: Calcium, Albumin", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Bone marrow", massnahme: "Baseline: Complete blood count · Erste 3 Monate, alle 4–6 Wochen: Complete blood count · Nach 3 Monaten, alle 4–6 Wochen: Complete blood count", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Latent infections", massnahme: "Baseline: Hepatitis B and C, HIV, Tuberculosis", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Coagulation and fibrinolysis", massnahme: "Baseline: INR, PT, PTT, D-Dimer, Fibrinogen, Ferritin · Nach 3 Monaten, alle 3–6 Monate: INR, PT, PTT", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Gastrointestinal function", massnahme: "Baseline: FC, C.diff, CMV (e)", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Lung function", massnahme: "Baseline: Spirometry and DLCO (f)", bild: 3 },
+        { gruppe: "Abklärungen vor/unter Immuntherapie (ICI)", indikation: "Neurological function", massnahme: "Baseline: Neurological examination (cranial nerves and motoric and sensory function)", bild: 3 }
+      ]
+    },
+    {
+      id: "vorhofflimmern",
+      titel: "Vorhofflimmern – Antikoagulation, Frequenzkontrolle, Risikofaktoren",
+      fachgebiet: "Kardiologie",
+      tags: ["vorhofflimmern", "vhf", "atrial fibrillation", "cha2ds2-va", "cha2ds2", "chads", "has-bled", "frequenzkontrolle", "rate control", "oak", "rhythmus", "arrhythmie"],
+      quelle: { typ: "Vortrag (FOMF)", stand: "2025/2026", titel: "2024 ESC GL on AF (Van Gelder IC, et al. EHJ 2024;45:3314-414); Kirchhof P, et al. EHJ 2016;37:2893-962 (adapted)" },
+      parameter: { name: "LVEF", einheit: "%", min: 20, max: 65 },
+      hinweise: [
+        "Frequenzkontrolle: Der linke Pfad gilt bei LVEF <40 % ODER Zeichen der Herzinsuffizienz; er bleibt deshalb bei jeder LVEF-Suche sichtbar. Nur der Pfad «LVEF ≥40 %» wird bei LVEF <40 % ausgeblendet.",
+        "Risikofaktoren: Die Folie nennt links «BD <130/80 mmHg», die ESC-Grafik rechts «120–129 mmHg / 70–79 mmHg». Beides ist so übernommen."
+      ],
+      screenshots: [
+        { datei: "img/vhf-antikoagulation.png", titel: "2024 ESC GL on AF: Anticoagulation" },
+        { datei: "img/vhf-frequenzkontrolle.png", titel: "Acute heart rate control" },
+        { datei: "img/vhf-risikofaktoren.png", titel: "Integrated care model for AF management" }
+      ],
+      eintraege: [
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Grundsatz", massnahme: "Start OAC ab ≥1 Punkt", bild: 0 },
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Chronic heart failure – 1 Punkt", massnahme: "Symptoms or signs of HF (irrespective of LVEF) or asymptomatic LVEF ≤40%", bild: 0 },
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Hypertension – 1 Punkt", massnahme: "Resting BP >140/90 mmHg, or antihypertensive treatment", bild: 0 },
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Age ≥75 years – 2 Punkte", massnahme: "Alter ≥75 Jahre", bild: 0 },
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Diabetes mellitus – 1 Punkt", massnahme: "According to currently accepted criteria, or glucose lowering therapy", bild: 0 },
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Stroke/TIA/TE – 2 Punkte", massnahme: "St. n. Stroke, TIA oder Thromboembolie", bild: 0 },
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Vascular disease – 1 Punkt", massnahme: "CAD: prior myocardial infarction, PCI, or significant CAD on imaging studies. PVD: claudication, previous revascularization (incl. aorta), or complex aortic plaques (≥4 mm) on imaging", bild: 0 },
+        { gruppe: "Thromboembolisches Risiko: CHA₂DS₂-VA (neu, ohne «Sc»)", indikation: "Age 65–74 years – 1 Punkt", massnahme: "Alter 65–74 Jahre", bild: 0 },
+        { gruppe: "Blutungsrisiko", indikation: "Blutungsscores", massnahme: "Do not use bleeding risk scores (e.g. HAS-BLED) to decide starting or withdrawing OAC", klasse: "III", bild: 0 },
+        { gruppe: "Blutungsrisiko", indikation: "Modifizierbare Faktoren", massnahme: "Manage all modifiable risk factors: AHT, antiplatelet drugs, unstable INR, LMWH bridging, NSAID, corticosteroids, alcohol, drug-drug interactions", bild: 0 },
+        { gruppe: "Blutungsrisiko", indikation: "GI-Blutung", massnahme: "Offer PPI to avoid GI bleeding", bild: 0 },
+
+        { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "LVEF <40 % oder Zeichen der Herzinsuffizienz", massnahme: "Smallest dose of βB to achieve rate control", bild: 1 },
+        { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "LVEF <40 % oder Zeichen der Herzinsuffizienz", massnahme: "Amiodarone is an option in patients with hemodynamic instability and severely reduced LVEF", bild: 1 },
+        { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "LVEF ≥40 %", massnahme: "βB or ND-CCB (diltiazem or verapamil)", von: 40, bis: 100, bereichText: "≥40 %", bild: 1 },
+        { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "LVEF ≥40 %", massnahme: "Check previous drug history to avoid concomitant administration", von: 40, bis: 100, bereichText: "≥40 %", bild: 1 },
+        { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "Beide Pfade", massnahme: "Initial resting HR target: <110 bpm", bild: 1 },
+        { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "Beide Pfade, danach", massnahme: "Add digoxin (if no contraindications); initial resting HR target <110 bpm", bild: 1 },
+        { gruppe: "Akute Frequenzkontrolle (acute AF with fast ventricular response)", indikation: "Note", massnahme: "Avoid bradycardia; perform an echocardiogram to guide further management; consider need for anticoagulation", bild: 1 },
+
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Alle", massnahme: "Integrated management: identify and actively manage all risk factors and comorbidities", klasse: "I", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "AHT", massnahme: "BD <130/80 mmHg", notiz: "ESC-Grafik: Blood pressure treatment with target 120–129 mmHg / 70–79 mmHg in most adults (or as low as reasonably achievable)", klasse: "I", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Heart failure", massnahme: "OMT, SGLT2i", notiz: "ESC-Grafik: Optimize with diuretics to alleviate congestion appropriate, medical therapy for reduced LVEF, and SGLT2 inhibitors for all LVEF", klasse: "I", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Diabetes", massnahme: "Glycemic control", notiz: "ESC-Grafik: Effective glycaemic control with diet/medication(s)", klasse: "I", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Alcohol intake", massnahme: "≤3 drinks/week", notiz: "ESC-Grafik: Reduce alcohol consumption to 3 or less standard drinks per week", klasse: "I", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Obesity", massnahme: "Weight loss >10%", notiz: "ESC-Grafik: Weight loss programme if overweight/obese, with 10% or more weight loss", klasse: "I", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Sleep apnea", massnahme: "CPAP", notiz: "ESC-Grafik: Management of obstructive sleep apnoea to minimize apnoeic episodes", klasse: "IIb", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Physical activity", massnahme: "Regular activity", notiz: "ESC-Grafik: Tailored exercise programme aiming for regular moderate/vigorous activity", klasse: "I", bild: 2 },
+        { gruppe: "Risikofaktor-Management (I°/II° Prävention): Risk factor → Target", indikation: "Vorgehen (ESC-Grafik)", massnahme: "Setting individual targets for comorbidities and risk factors; behavioural change: shared decision-making, focus on key risk factors, achievable targets, provide information without overloading", bild: 2 }
+      ]
+    },
+    {
+      id: "antikoagulation-substanzen",
+      titel: "Therapeutische Antikoagulation – Substanzen nach Indikation",
+      fachgebiet: "Gerinnung / Perioperative Medizin",
+      tags: ["antikoagulation", "therapeutische antikoagulation", "heparin", "ufh", "nmh", "fondaparinux", "marcumar", "xabane", "dabigatran", "argatroban", "hit", "klappenersatz", "monitoring", "thrombose", "lungenembolie"],
+      quelle: { typ: "Vortrag (FOMF)", stand: "2025/2026" },
+      hinweise: ["Abkürzungen: UFH = unfraktioniertes Heparin; NMH = niedermolekulares Heparin; Xabane = Apixaban, Rivaroxaban, Edoxaban; NVHF = nichtvalvuläres Vorhofflimmern.", "Spalten der Folie: Thrombose/LE · VHF · Mechanischer Klappenersatz · Monitoring."],
+      screenshots: [ { datei: "img/antikoagulation-substanzen.png", titel: "Therapeutische Antikoagulation" } ],
+      eintraege: [
+        { gruppe: "Einsatz nach Indikation und Monitoring", indikation: "UFH", massnahme: "Thrombose/LE: ja · VHF: ja · Mech. Klappenersatz: ja · Monitoring: aPTT/aXa", bild: 0 },
+        { gruppe: "Einsatz nach Indikation und Monitoring", indikation: "NMH", massnahme: "Thrombose/LE: ja · VHF: ja · Mech. Klappenersatz: (ja) · Monitoring: aXa 0,4–1,1 U/ml", bild: 0 },
+        { gruppe: "Einsatz nach Indikation und Monitoring", indikation: "Fondaparinux", massnahme: "Thrombose/LE: ja · VHF: (ja) · Mech. Klappenersatz: nein · Monitoring: 0,6–1,2 µg/ml", bild: 0 },
+        { gruppe: "Einsatz nach Indikation und Monitoring", indikation: "Marcumar", massnahme: "Thrombose/LE: ja (nicht initial) · VHF: ja · Mech. Klappenersatz: ja · Monitoring: INR", bild: 0 },
+        { gruppe: "Einsatz nach Indikation und Monitoring", indikation: "Xabane (Apixaban, Rivaroxaban, Edoxaban)", massnahme: "Thrombose/LE: ja (A, R), E d5 · VHF: ja (NVHF) · Mech. Klappenersatz: nein · Monitoring: kein, ggf. aXa", bild: 0 },
+        { gruppe: "Einsatz nach Indikation und Monitoring", indikation: "Dabigatran", massnahme: "Thrombose/LE: (ja) d5 · VHF: ja (NVHF) · Mech. Klappenersatz: nein · Monitoring: kein, ggf. Spiegel", bild: 0 },
+        { gruppe: "Einsatz nach Indikation und Monitoring", indikation: "Argatroban", massnahme: "Thrombose/LE: bei HIT II · VHF: bei HIT II · Mech. Klappenersatz: bei HIT II · Monitoring: 1,5–3 × aPTT; 0,5–1,0 µg/ml", bild: 0 }
+      ]
+    },
+    {
+      id: "hypertonie",
+      titel: "Arterielle Hypertonie – Risikostratifizierung, Abklärung, Kombinationstherapie",
+      fachgebiet: "Kardiologie",
+      tags: ["hypertonie", "arterielle hypertonie", "bluthochdruck", "blutdruck", "hypertension", "elevated bp", "score2", "antihypertensiva", "amlodipin", "amlodipine", "losartan", "lisinopril", "metoprolol", "hydrochlorothiazid", "hydrochlorothiazide"],
+      quelle: { typ: "Vortrag (FOMF)", stand: "2025/2026", titel: "ESC-Algorithmus (erhöhter Blutdruck); www.bpmodel.org" },
+      hinweise: [
+        "Risikostratifizierung: Flussdiagramm in Textzeilen übertragen; der Behandlungspfad heisst hier «Lifestyle + nach 3 Monaten medikamentös», der Beobachtungspfad «Lifestyle + Reassessment».",
+        "Kombinationstabelle: Werte als Zahl (Bereich) übernommen. Die Einheit steht nicht auf der Folie. Der Farbcode (Efficacy: low / moderate / high intensity) ist nur auf der Originalfolie zu sehen."
+      ],
+      screenshots: [
+        { datei: "img/hypertonie-risikostratifizierung.png", titel: "Erhöhter Blutdruck – Risikostratifizierung (ESC)" },
+        { datei: "img/hypertonie-baseline.png", titel: "Baseline assessment" },
+        { datei: "img/hypertonie-kombinationen.png", titel: "Therapie: Medikamente (bpmodel.org)" }
+      ],
+      eintraege: [
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "Definition", massnahme: "Patient with elevated BP*: office SBP 120–139 mmHg or DBP 70–89 mmHg", notiz: "*Exercise caution when considering treating persons with elevated BP and: moderate-to-severe frailty; symptomatic orthostatic hypotension; age ≥85 years", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "Schritt 1", massnahme: "Established CVD, moderate/severe CKD, HMOD, DM, or FH?", klasse: "I", notiz: "Ja → weiter zu «Patient with T2DM (only) and <60 years old?». Nein → SCORE2 bzw. SCORE2-OP", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "Schritt 1: Ja", massnahme: "Patient with T2DM (only) and <60 years old? Ja → Calculate SCORE2-Diabetes. Nein → Behandlungspfad", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "Schritt 1: Nein", massnahme: "Calculate SCORE2 or SCORE2-OP", klasse: "I", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "T2DM (only), <60 Jahre", massnahme: "Calculate SCORE2-Diabetes", klasse: "IIa", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "10-year predicted CVD risk ≥10 %", massnahme: "Behandlungspfad: Lifestyle measures to reduce BP (Class I); after 3 months of lifestyle measures, pharmacological treatment for patients with ≥130/80 mmHg (Class I)", klasse: "I", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "10-year predicted CVD risk <5 %", massnahme: "Lifestyle measures to reduce BP (Class I); reassess risk/BP one year later (Class IIa)", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "10-year predicted CVD risk 5 % – <10 %", massnahme: "Consider shared risk modifiers: high-risk ethnicity; family history of premature onset ASCVD; socio-economic deprivation; auto-immune diseases; severe mental illness; HIV. Ja → Behandlungspfad", klasse: "IIa", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "5 % – <10 %, keine gemeinsamen Risikomodifikatoren", massnahme: "Consider sex-specific risk modifiers: gestational diabetes; gestational hypertension; pre-eclampsia; pre-term delivery; one or more still births; recurrent miscarriage. Ja → Behandlungspfad", klasse: "IIa", bild: 0 },
+        { gruppe: "Erhöhter Blutdruck – Risikostratifizierung", indikation: "Weiterhin unklar", massnahme: "If still uncertain, shared decision-making informed by risk tools: CAC score; carotid or femoral plaque; high-sensitivity cardiac troponin; NT-proBNP; pulse wave velocity. Abnormal → Behandlungspfad; nicht abnormal → Lifestyle + Reassessment nach 1 Jahr", klasse: "IIb", bild: 0 },
+
+        { gruppe: "Baseline assessment", indikation: "Labor", massnahme: "Basic lab workup (Hematology, Na, K, Crea, Ca, Gluc, HbA1c, LDL)", bild: 1 },
+        { gruppe: "Baseline assessment", indikation: "EKG", massnahme: "ECG", bild: 1 },
+        { gruppe: "Baseline assessment", indikation: "Urin", massnahme: "Urine with albumine/creatinine ratio", bild: 1 },
+
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "Spalten", massnahme: "None 0 mg · Losartan 50 / 100 mg · Lisinopril 10 / 20 mg · Metoprolol 50 / 100 mg", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 0 mg + Amlodipin 0 mg", massnahme: "None: – · Losartan 50: 7 (6–8) · Losartan 100: 8 (7–9) · Lisinopril 10: 7 (6–8) · Lisinopril 20: 10 (7–11) · Metoprolol 50: 7 (5–8) · Metoprolol 100: 7 (6–8)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 0 mg + Amlodipin 5 mg", massnahme: "None: 9 (8–10) · Losartan 50: 15 (13–16) · Losartan 100: 16 (14–17) · Lisinopril 10: 15 (13–16) · Lisinopril 20: 18 (15–19) · Metoprolol 50: 15 (13–16) · Metoprolol 100: 15 (14–17)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 0 mg + Amlodipin 10 mg", massnahme: "None: 12 (10–15) · Losartan 50: 18 (15–19) · Losartan 100: 19 (16–21) · Lisinopril 10: 18 (16–20) · Lisinopril 20: 21 (17–22) · Metoprolol 50: 18 (16–20) · Metoprolol 100: 18 (16–21)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 12,5 mg + Amlodipin 0 mg", massnahme: "None: 6 (5–7) · Losartan 50: 12 (11–13) · Losartan 100: 13 (12–14) · Lisinopril 10: 12 (11–13) · Lisinopril 20: 15 (13–16) · Metoprolol 50: 12 (11–13) · Metoprolol 100: 12 (11–14)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 12,5 mg + Amlodipin 5 mg", massnahme: "None: 14 (13–15) · Losartan 50: 19 (17–20) · Losartan 100: 20 (18–21) · Lisinopril 10: 20 (18–21) · Lisinopril 20: 22 (19–24) · Metoprolol 50: 19 (17–21) · Metoprolol 100: 20 (17–21)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 12,5 mg + Amlodipin 10 mg", massnahme: "None: 17 (15–19) · Losartan 50: 22 (19–24) · Losartan 100: 23 (20–25) · Lisinopril 10: 22 (20–24) · Lisinopril 20: 25 (21–27) · Metoprolol 50: 22 (19–24) · Metoprolol 100: 22 (19–24)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 25 mg + Amlodipin 0 mg", massnahme: "None: 8 (7–9) · Losartan 50: 14 (12–15) · Losartan 100: 15 (13–16) · Lisinopril 10: 14 (12–15) · Lisinopril 20: 17 (15–18) · Metoprolol 50: 14 (12–15) · Metoprolol 100: 14 (12–15)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 25 mg + Amlodipin 5 mg", massnahme: "None: 16 (14–17) · Losartan 50: 21 (19–22) · Losartan 100: 22 (19–23) · Lisinopril 10: 21 (19–22) · Lisinopril 20: 24 (21–25) · Metoprolol 50: 21 (19–22) · Metoprolol 100: 21 (18–23)", bild: 2 },
+        { gruppe: "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)", indikation: "HCT 25 mg + Amlodipin 10 mg", massnahme: "None: 19 (17–21) · Losartan 50: 23 (20–25) · Losartan 100: 24 (21–26) · Lisinopril 10: 24 (21–25) · Lisinopril 20: 26 (22–28) · Metoprolol 50: 23 (20–25) · Metoprolol 100: 23 (20–25)", bild: 2 }
       ]
     }
   ]

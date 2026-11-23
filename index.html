@@ -26,6 +26,7 @@
   --c1: #3f9f74;
   --c2a: #e0b43a;
   --c2b: #e08a3c;
+  --c3: #d9655c;
   --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   color-scheme: light;
@@ -33,13 +34,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #14181b; --surface: #1c2125; --ink: #e6eaed; --muted: #9aa6af; --line: #2d343a;
-    --accent: #6fb0dc; --track: #2a3136; --c1: #4fb487; --c2a: #d9ae3c; --c2b: #e0904a;
+    --accent: #6fb0dc; --track: #2a3136; --c1: #4fb487; --c2a: #d9ae3c; --c2b: #e0904a; --c3: #e0786f;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #14181b; --surface: #1c2125; --ink: #e6eaed; --muted: #9aa6af; --line: #2d343a;
-  --accent: #6fb0dc; --track: #2a3136; --c1: #4fb487; --c2a: #d9ae3c; --c2b: #e0904a;
+  --accent: #6fb0dc; --track: #2a3136; --c1: #4fb487; --c2a: #d9ae3c; --c2b: #e0904a; --c3: #e0786f;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -87,6 +88,7 @@ sup { color: var(--muted); font-size: 10px; }
 .k-IIa { background: var(--c2a); }
 .k-IIb { background: var(--c2b); }
 .k-none { background: var(--accent); opacity: 0.55; }
+.k-III { background: var(--c3); }
 .k-split { background: linear-gradient(var(--c1) 0 50%, var(--c2a) 50% 100%); }
 .badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; color: #1b2228; white-space: nowrap; }
 button.link { font: inherit; font-size: 13px; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
@@ -217,8 +219,10 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   }
 
   function legend(items) {
-    if (!items.some((e) => e.klasse)) return "";
-    return '<div class="legend"><span>Empfehlungsklasse (Farbcode der Folien):</span>' + badge("I") + badge("IIa") + badge("IIb") + badge("I/IIa") + "<span>zweifarbiger Balken</span></div>";
+    const order = ["I", "IIa", "IIb", "III", "I/IIa"];
+    const present = order.filter((k) => items.some((e) => e.klasse === k));
+    if (!present.length) return "";
+    return '<div class="legend"><span>Empfehlungsklasse:</span>' + present.map(badge).join("") + (present.includes("I/IIa") ? "<span>(I/IIa = zweifarbiger Balken)</span>" : "") + "</div>";
   }
 
   function metaLine(t) {
