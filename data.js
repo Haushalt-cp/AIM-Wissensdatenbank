@@ -1635,7 +1635,7 @@ window.KB = {
     {
       "id": "antikoagulation",
       "titel": "Antikoagulation",
-      "fachgebiet": "Gerinnung / Perioperative Medizin",
+      "fachgebiet": "Gerinnung",
       "tags": [
         "antikoagulation",
         "therapeutische antikoagulation",
@@ -1763,11 +1763,370 @@ window.KB = {
         "noak",
         "blutverdünnung"
       ]
+    },
+    {
+      "id": "perioperative-schmerztherapie",
+      "titel": "Perioperative Schmerztherapie",
+      "fachgebiet": "Perioperative Medizin",
+      "synonyme": [
+        "perioperative schmerztherapie",
+        "schmerztherapie",
+        "postoperative schmerzen",
+        "analgesie",
+        "cpsp",
+        "chronic postsurgical pain"
+      ],
+      "tags": [
+        "opioide",
+        "regionalanästhesie",
+        "multimodal",
+        "ssapm"
+      ],
+      "quelle": {
+        "typ": "Leitlinie",
+        "stand": "2024",
+        "titel": "Perioperative Pain Medicine – Recommendations of the Swiss Society for Anaesthesiology and Perioperative Medicine (SSAPM), Version 1.0, approved 23.08.2024"
+      },
+      "hinweise": [
+        "Nur patientenbezogene Empfehlungen übernommen (Abklärung, Diagnose, Prävention, Therapie, Nachsorge). Strukturelle und organisatorische Anforderungen (Tab. 1, Teile von Tab. 2, Kap. 3.1, 3.2, 5, Anhang) sind weggelassen.",
+        "Die Empfehlungsstärken des Dokuments betreffen nur die strukturellen Anforderungen (Tab. 1); für die übernommenen Punkte ist keine Stärke angegeben.",
+        "Wortlaut englisch wie im Original, Kapitel- und Tabellenangaben in den Zwischentiteln."
+      ],
+      "screenshots": [],
+      "eintraege": [
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Definitionen ICD-11 (Kap. 4, Box 1–2)",
+          "indikation": "Chronic pain",
+          "massnahme": "Pain that persists or recurs for longer than 3 months; multifactorial (biological, psychological and social factors)."
+        },
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Definitionen ICD-11 (Kap. 4, Box 1–2)",
+          "indikation": "Chronic postsurgical pain (CPSP, ICD-11 MG30.21)",
+          "massnahme": "Chronic pain developing or increasing in intensity after a surgical procedure and persisting beyond the healing process, i.e. at least 3 months after surgery."
+        },
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Definitionen ICD-11 (Kap. 4, Box 1–2)",
+          "indikation": "CPSP: Lokalisation",
+          "massnahme": "Localised to the surgical field, projected to the innervation territory of a nerve situated in this area, or referred to a dermatome (after surgery/injury to deep somatic or visceral tissues)."
+        },
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Definitionen ICD-11 (Kap. 4, Box 1–2)",
+          "indikation": "CPSP: Ausschluss",
+          "massnahme": "Other causes of pain including infection, malignancy etc. need to be excluded, as well as pain continuing from a pre-existing pain problem."
+        },
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Definitionen ICD-11 (Kap. 4, Box 1–2)",
+          "indikation": "CPSP bei präoperativem Schmerz",
+          "massnahme": "If the pain continues from a preoperative condition, either intensity or pain characteristics must be different from the preoperative status."
+        },
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Definitionen ICD-11 (Kap. 4, Box 1–2)",
+          "indikation": "CPSP: Charakter",
+          "massnahme": "Dependent on type of surgery, CPSP often may be neuropathic pain."
+        },
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Definitionen ICD-11 (Kap. 4, Box 1–2)",
+          "indikation": "Schweregrad (WHO)",
+          "massnahme": "Assess all three dimensions of pain severity: pain intensity, pain-related functional interference, pain-related distress («postcoordination» of the ICD-11 code)."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Identifikation von Risikopatienten für schwere Akutschmerzen / CPSP (Tab. 2, Kap. 4.1)",
+          "indikation": "Zeitpunkt",
+          "massnahme": "Identify patients at risk at every perioperative stage: preoperatively by the surgeon and/or the anaesthesiologist, in the PACU and postoperatively on the ward; ideally before surgery, and follow up after discharge."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Identifikation von Risikopatienten für schwere Akutschmerzen / CPSP (Tab. 2, Kap. 4.1)",
+          "indikation": "Eingriffe mit hoher CPSP-Rate",
+          "massnahme": "Limb amputation, arthroplasty, spine surgery, mastectomy, thoracotomy."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Identifikation von Risikopatienten für schwere Akutschmerzen / CPSP (Tab. 2, Kap. 4.1)",
+          "indikation": "Patientenfaktoren",
+          "massnahme": "Younger (adult) age, female sex, socioeconomic status."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Identifikation von Risikopatienten für schwere Akutschmerzen / CPSP (Tab. 2, Kap. 4.1)",
+          "indikation": "Psychologische Faktoren",
+          "massnahme": "State and trait anxiety, depression, pain catastrophising, kinesiophobia, low self-efficacy."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Identifikation von Risikopatienten für schwere Akutschmerzen / CPSP (Tab. 2, Kap. 4.1)",
+          "indikation": "Vorbestehende Schmerzen / Opioide",
+          "massnahme": "Patients with pre-existing chronic pain and patients on long-term opioids before surgery need special attention."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Postoperative Warnzeichen für einen abnormen Schmerzverlauf (Kap. 4.1)",
+          "indikation": "Vorgehen",
+          "massnahme": "Any abnormal postoperative pain trajectory should be evaluated by the pain team during hospitalisation (manual monitoring or automatic alerts)."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Postoperative Warnzeichen für einen abnormen Schmerzverlauf (Kap. 4.1)",
+          "indikation": "Warnzeichen",
+          "massnahme": "Unusually high acute pain scores on the first postoperative day."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Postoperative Warnzeichen für einen abnormen Schmerzverlauf (Kap. 4.1)",
+          "indikation": "Warnzeichen",
+          "massnahme": "Pain scores not regressing during hospitalisation."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Postoperative Warnzeichen für einen abnormen Schmerzverlauf (Kap. 4.1)",
+          "indikation": "Warnzeichen",
+          "massnahme": "Abnormally high use of on-demand pain medication."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Postoperative Warnzeichen für einen abnormen Schmerzverlauf (Kap. 4.1)",
+          "indikation": "Warnzeichen",
+          "massnahme": "Patient not performing physiotherapy as scheduled (after having ruled out insufficient pain therapy as a reason)."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Postoperative Warnzeichen für einen abnormen Schmerzverlauf (Kap. 4.1)",
+          "indikation": "Warnzeichen",
+          "massnahme": "Patient discharged with opioids, if not pre-planned by a fast-track protocol."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Risiko für Opioid-Langzeitgebrauch nach OP (Kap. 4.2)",
+          "indikation": "Präoperativ erfassen",
+          "massnahme": "Pre-existing chronic pain before surgery, preoperative opioid use, psychosocial factors (e.g. anxiety, depression), history of substance abuse."
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Risiko für Opioid-Langzeitgebrauch nach OP (Kap. 4.2)",
+          "indikation": "Perioperative Indikatoren",
+          "massnahme": "Severe pain and high opioid demands."
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Präoperative Vorbereitung (Tab. 2, Kap. 3.3, 4.2)",
+          "indikation": "Prähabilitation",
+          "massnahme": "Identify patients at risk early (surgical consultation) and initiate preventive measures; use the waiting time before surgery as «preparation time» (prehabilitation)."
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Präoperative Vorbereitung (Tab. 2, Kap. 3.3, 4.2)",
+          "indikation": "Präoperative Opioide bei Schmerz im OP-Gebiet",
+          "massnahme": "Opioid medication must be tapered and this should be clearly communicated; starting to reduce the opioid dose preoperatively is helpful."
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Präoperative Vorbereitung (Tab. 2, Kap. 3.3, 4.2)",
+          "indikation": "Erwartungen",
+          "massnahme": "Discuss realistic expectations for pain control, including non-pharmacological pain treatment and safe analgesic use."
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Präoperative Vorbereitung (Tab. 2, Kap. 3.3, 4.2)",
+          "indikation": "Psychologische Interventionen",
+          "massnahme": "Should already start preoperatively whenever possible (see Therapie)."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Patienteninformation und -schulung (Tab. 2)",
+          "indikation": "Präoperativ",
+          "massnahme": "Preoperative patient information regarding analgesic treatment options and possible adverse events/risks."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Patienteninformation und -schulung (Tab. 2)",
+          "indikation": "Entscheidung",
+          "massnahme": "Shared decision making and communication of a treatment plan."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Patienteninformation und -schulung (Tab. 2)",
+          "indikation": "Schulungsinhalte",
+          "massnahme": "Goals of analgesic therapy; realistic treatment expectations; assessment of pain and function; non-medical treatment approaches; self-efficacy."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: systemisch (Tab. 3)",
+          "indikation": "Basisanalgesie",
+          "massnahme": "One to two non-opioid analgesics: NSAIDs, metamizole, paracetamol in sufficient daily doses.",
+          "notiz": "Contraindications between all drugs and methods should always be considered."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: systemisch (Tab. 3)",
+          "indikation": "Falls indiziert",
+          "massnahme": "Short-acting opioids, including oral or i.v. patient-controlled analgesia (PCA)."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: Regionalanästhesie – «use whenever possible!» (Tab. 3)",
+          "indikation": "Neuraxial",
+          "massnahme": "Neuraxial analgesia, particularly epidural catheters for extended abdominal/thoracic surgery."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: Regionalanästhesie – «use whenever possible!» (Tab. 3)",
+          "indikation": "Rumpfblockaden",
+          "massnahme": "Truncal blocks such as TAP block, PEC block, paravertebral block."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: Regionalanästhesie – «use whenever possible!» (Tab. 3)",
+          "indikation": "Periphere Blockaden",
+          "massnahme": "Peripheral nerve blocks («single shot»)."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: Regionalanästhesie – «use whenever possible!» (Tab. 3)",
+          "indikation": "Ausgewählte Fälle",
+          "massnahme": "Peripheral nerve or plexus catheters with continuous drug administration."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: Co-Analgetika (Tab. 3)",
+          "indikation": "Dexamethason",
+          "massnahme": "For analgesic effects at least 8 mg, given in a timely manner for the delayed effect."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: Co-Analgetika (Tab. 3)",
+          "indikation": "Nur bei spezifischen Indikationen",
+          "massnahme": "i.v. ketamine; i.v. lidocaine; others, e.g. gabapentinoids, antidepressants, α2-agonists.",
+          "notiz": "Cave: use only for specific indications, evidence is weak for most types of surgery."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: physikalische Massnahmen (Tab. 3)",
+          "indikation": "Massnahmen",
+          "massnahme": "Early ambulation/mobilisation; physiotherapy; acupuncture (for pain or PONV); TENS; physical measures such as cold packs and positioning."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: psychologische Interventionen (Tab. 3)",
+          "indikation": "Alle Patienten",
+          "massnahme": "Patient education (ideally for all patients)."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: psychologische Interventionen (Tab. 3)",
+          "indikation": "Angst",
+          "massnahme": "Reduction of fear and anxiety, e.g. by hypnosis."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: psychologische Interventionen (Tab. 3)",
+          "indikation": "Katastrophisieren / geringe Selbstwirksamkeit",
+          "massnahme": "Specific short interventions."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: psychologische Interventionen (Tab. 3)",
+          "indikation": "Depression",
+          "massnahme": "Treatment of depression."
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Multimodale Analgesie: systemisch (Tab. 3)",
+          "indikation": "Opioide perioperativ",
+          "massnahme": "Establish a multimodal analgesic regimen; taper opioids as soon as possible."
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Patienten mit präoperativer Opioid-Langzeittherapie (Kap. 4.1, 4.2)",
+          "indikation": "Fortführung",
+          "massnahme": "Avoid accidental interruption of the opioid therapy."
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Patienten mit präoperativer Opioid-Langzeittherapie (Kap. 4.1, 4.2)",
+          "indikation": "Analgesiekonzept",
+          "massnahme": "Plan alternatives to opioid-based analgesia in some cases."
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Patienten mit präoperativer Opioid-Langzeittherapie (Kap. 4.1, 4.2)",
+          "indikation": "Ausschleichen",
+          "massnahme": "Opioid medication must be tapered; communicate clearly; dose reduction can start preoperatively."
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Palliative Patienten (Kap. 3.4)",
+          "indikation": "Therapieziel",
+          "massnahme": "Symptom control and individual quality of life in the primary focus, also perioperatively."
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Palliative Patienten (Kap. 3.4)",
+          "indikation": "Assessment",
+          "massnahme": "Interdisciplinary, multi-professional, biopsychosocial and spiritual approach and assessment."
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Palliative Patienten (Kap. 3.4)",
+          "indikation": "Vor der Operation",
+          "massnahme": "Define clear decisions regarding life-supporting measures, resuscitation and therapeutic escalation."
+        },
+        {
+          "kapitel": "Nachsorge",
+          "gruppe": "Entlassung und Opioid-Ausschleichen (Tab. 2, Kap. 4.2)",
+          "indikation": "Ziel",
+          "massnahme": "Start tapering of opioids as early as possible; the general aim is a discharge without any opioid medication."
+        },
+        {
+          "kapitel": "Nachsorge",
+          "gruppe": "Entlassung und Opioid-Ausschleichen (Tab. 2, Kap. 4.2)",
+          "indikation": "Reihenfolge",
+          "massnahme": "Instruct patients before discharge about reduction regimens for analgesics, with opioids being the first drug to be tapered."
+        },
+        {
+          "kapitel": "Nachsorge",
+          "gruppe": "Entlassung und Opioid-Ausschleichen (Tab. 2, Kap. 4.2)",
+          "indikation": "Opioid-Verschreibung",
+          "massnahme": "Limit the number of tablets and the duration of the opioid prescription, usually to a week post discharge."
+        },
+        {
+          "kapitel": "Nachsorge",
+          "gruppe": "Entlassung und Opioid-Ausschleichen (Tab. 2, Kap. 4.2)",
+          "indikation": "Patientin/Patient",
+          "massnahme": "Hand out written information on how to continue and taper analgesics and explain it orally."
+        },
+        {
+          "kapitel": "Nachsorge",
+          "gruppe": "Entlassung und Opioid-Ausschleichen (Tab. 2, Kap. 4.2)",
+          "indikation": "Hausärztin/Hausarzt",
+          "massnahme": "Written recommendations to the GP / further treating doctor, including dosing of analgesics and co-analgesics; inform about the need for opioid tapering."
+        },
+        {
+          "kapitel": "Nachsorge",
+          "gruppe": "Weiterbetreuung nach Entlassung (Kap. 3.3, 4.2, 5)",
+          "indikation": "Schmerz über die Heilungsdauer hinaus",
+          "massnahme": "Consider referral to a pain specialist, particularly in case of ongoing intake of opioids."
+        },
+        {
+          "kapitel": "Nachsorge",
+          "gruppe": "Weiterbetreuung nach Entlassung (Kap. 3.3, 4.2, 5)",
+          "indikation": "Risikopatienten",
+          "massnahme": "Follow up patients at risk for CPSP and patients discharged with a new opioid medication; follow-up shared between the primary care provider and the chronic pain consultation."
+        }
+      ]
     }
   ],
   "kapitel": [
     "Diagnostik",
     "Risiko/Klassifikation",
+    "Prävention",
     "Therapie",
     "Spezielle Situationen",
     "Nachsorge"

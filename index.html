@@ -175,7 +175,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
 <script>
 (function () {
   const KB = window.KB || { themen: [], kapitel: [] };
-  const KAP = KB.kapitel || ["Diagnostik", "Risiko/Klassifikation", "Therapie", "Spezielle Situationen", "Nachsorge"];
+  const KAP = KB.kapitel || ["Diagnostik", "Risiko/Klassifikation", "Prävention", "Therapie", "Spezielle Situationen", "Nachsorge"];
   const SLUG = { "Diagnostik": "diagnostik", "Risiko/Klassifikation": "risiko", "Therapie": "therapie", "Spezielle Situationen": "spezielle", "Nachsorge": "nachsorge", "Folien": "folien" };
   const UNSLUG = Object.fromEntries(Object.entries(SLUG).map(([k, v]) => [v, k]));
   const STOP = new Set(["therapie","leitlinie","leitlinien","leitlinientherapie","leitliniengerecht","behandlung","bei","mit","und","oder","der","die","das","den","dem","für","fuer","von","zu","was","welche","empfehlung","empfehlungen","guideline","guidelines","therapy","treatment","patient","patienten","the","of","in","im"]);
@@ -225,7 +225,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
 
   function tabsFor(t) {
     const list = KAP.filter((k) => t.eintraege.some((e) => e.kapitel === k) || (t.siehe || []).some((s) => s.kapitel === k));
-    list.push("Folien");
+    if (t.screenshots.length || (t.hinweise || []).length) list.push(t.screenshots.length ? "Folien" : "Quelle");
     return list;
   }
 
@@ -245,7 +245,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
         (val != null ? '<button type="button" id="pvclear">alle anzeigen</button>' : "") + "</div>";
     }
     html += '</div><div class="tabs" role="tablist">' + tabs.map((k) => {
-      const n = k === "Folien" ? t.screenshots.length : t.eintraege.filter((e) => e.kapitel === k && applies(t, e, val)).length;
+      const n = k === "Quelle" ? 0 : k === "Folien" ? t.screenshots.length : t.eintraege.filter((e) => e.kapitel === k && applies(t, e, val)).length;
       return '<button type="button" role="tab" data-kap="' + esc(k) + '" aria-selected="' + (k === kap) + '">' + esc(k) + (n ? '<span class="n">' + n + "</span>" : "") + "</button>";
     }).join("") + '</div><div class="content" role="tabpanel">' + renderKapitel(t, kap, val) + "</div></article>";
     out.innerHTML = backBar() + html;
@@ -259,8 +259,8 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
   }
 
   function renderKapitel(t, kap, val) {
-    if (kap === "Folien") {
-      return (t.quelle && t.quelle.titel ? '<p class="msg" style="margin-top:10px">Quellen auf den Folien: ' + esc(t.quelle.titel) + "</p>" : "") +
+    if (kap === "Folien" || kap === "Quelle") {
+      return (t.quelle && t.quelle.titel ? '<p class="msg" style="margin-top:10px">Quelle: ' + esc(t.quelle.titel) + "</p>" : "") +
         (t.hinweise && t.hinweise.length ? '<ul class="hints">' + t.hinweise.map((h) => "<li>" + esc(h) + "</li>").join("") + "</ul>" : "") +
         '<div class="shots">' + t.screenshots.map((s, i) => '<figure><img src="' + esc(s.datei) + '" alt="' + esc(s.titel) + '" data-t="' + esc(t.id) + '" data-b="' + i + '"><figcaption>' + esc(s.titel) + "</figcaption></figure>").join("") + "</div>";
     }
@@ -293,7 +293,7 @@ dialog button { font: inherit; color: #fff; background: none; border: 1px solid 
       '<button type="button" class="tile" data-fg="' + esc(g) + '" aria-expanded="' + (cur.fg === g) + '"><b>' + esc(g) + '</b><span>' + groups[g].length + (groups[g].length === 1 ? " Krankheitsbild" : " Krankheitsbilder") + "</span></button>").join("") + "</div>";
     if (cur.fg && groups[cur.fg]) {
       html += '<section class="topics"><h2 class="fg">' + esc(cur.fg) + "</h2>" + groups[cur.fg].sort((a, b) => a.titel.localeCompare(b.titel, "de")).map((t) =>
-        '<a class="topic-link" href="#" data-open="' + esc(t.id) + '"><b>' + esc(t.titel) + '</b><span class="sub">' + tabsFor(t).filter((k) => k !== "Folien").join(" · ") + "</span></a>").join("") + "</section>";
+        '<a class="topic-link" href="#" data-open="' + esc(t.id) + '"><b>' + esc(t.titel) + '</b><span class="sub">' + tabsFor(t).filter((k) => k !== "Folien" && k !== "Quelle").join(" · ") + "</span></a>").join("") + "</section>";
     } else {
       html += '<p class="msg">Fachgebiet antippen, um die Krankheitsbilder zu sehen.</p>';
     }
