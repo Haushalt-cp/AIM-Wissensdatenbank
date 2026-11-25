@@ -390,6 +390,10 @@ window.KB = {
         {
           "datei": "img/ckd-aktionsplan.png",
           "titel": "Aktionsplan nach Blickwinkel (Nephro am See / Nephro am Wald)"
+        },
+        {
+          "datei": "img/dm-ckd-holistisch.png",
+          "titel": "Holistische Therapie der chronischen Nierenerkrankung bei Diabetes mellitus"
         }
       ],
       "eintraege": [
@@ -575,6 +579,15 @@ window.KB = {
           "massnahme": "Lassen Sie Ihre Nierenfunktion messen, wenn mehr als einer der «Hochrisikofaktoren» zutrifft: Diabetes, Bluthochdruck, Übergewicht, FA pos, nicht-kaukasische Abstammung",
           "bild": 1,
           "kapitel": "Therapie"
+        },
+        {
+          "typ": "bild",
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Bei Diabetes mellitus – holistische Therapie (Rossing 2022)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Holistische Therapie der chronischen Nierenerkrankung bei Diabetes mellitus",
+          "bild": 2,
+          "suchtext": "Erstlinien-Therapie CKD und Diabetes: SGLT-2 H. falls eGFR ≥20 bis Dialyse oder Tx; Metformin falls eGFR ≥30; zusätzliche risikobasierte Therapie: GLP-1 RA; nichtsteroidaler MRA (Finerenon) falls Mikroalbuminurie und normales Kalium; Insulin um HbA1c-Ziel zu erreichen; Therapie Hypertonie: RAS-Hemmer max. tolerierte Dosis (falls HT); Calcium B. ± Diuretikum (Erreichen BD-Ziel); steroidaler MRA für resistente HT falls eGFR ≥45; Therapie Hyperlipidämie: Statin, Bempedoinsäure; Ezetimib, PCSK-9 H, Icosapent-Aethyl; Rossing P Kidney International 2022;102:990-999"
         }
       ],
       "synonyme": [
@@ -654,9 +667,33 @@ window.KB = {
         {
           "datei": "img/dm2-algorithmus.png",
           "titel": "Therapiealgorithmus Diabetes mellitus Typ 2"
+        },
+        {
+          "datei": "img/dm-hba1c-ziele.png",
+          "titel": "HbA1c-Ziele bei Typ 2 Diabetes mellitus (SGED 2027, Entwurf)"
+        },
+        {
+          "datei": "img/dm-ckd-holistisch.png",
+          "titel": "Holistische Therapie der chronischen Nierenerkrankung bei Diabetes mellitus"
         }
       ],
       "eintraege": [
+        {
+          "kapitel": "Therapie",
+          "gruppe": "HbA1c-Ziele (Entwurf SGED/SSED-Richtlinien 2027)",
+          "indikation": "Medikamente ohne Hypoglykämie-Risiko (Metformin, SGLT-2 H., GLP-1 RA, DPP-4 H.)",
+          "massnahme": "HbA1c <6.5 % oder <5.7 % (unabhängig vom Alter)",
+          "bild": 1,
+          "notiz": "Nicht gefährlich, da keine Hypoglykämien"
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "HbA1c-Ziele (Entwurf SGED/SSED-Richtlinien 2027)",
+          "indikation": "Medikamente mit Hypoglykämie-Risiko (Insulin oder Sulfonylharnstoffe*)",
+          "massnahme": "HbA1c <8.0 % (alle Alter)",
+          "bild": 1,
+          "notiz": "*Sulfonylharnstoffe: nicht empfohlen"
+        },
         {
           "typ": "bild",
           "kapitel": "Therapie",
@@ -665,6 +702,15 @@ window.KB = {
           "massnahme": "Therapiealgorithmus Diabetes mellitus Typ 2",
           "bild": 0,
           "suchtext": "Alle Motivation für Änderung Lebensstil (mehr Aktivität und gesunde Ernährung) = sehr wichtig · Alle Multifaktorielle Behandlung: Blutdruckkontrolle, Senkung Lipide und Rauchstopp · Begleiterkrankung: Herzinsuffizienz, Nierenschutz Metformin + SGLT-2i (eGFR >30) ↔ + GLP-1-RA (BMI >28) bzw. DPP4i (BMI <28) · Begleiterkrankung: kardiovaskulär, Gewichtsreduktion Metformin (eGFR >30) + GLP-1-RA (BMI >28) ↔ + SGLT-2i (eGFR >30) · Nächste Stufe + Basalinsulin oder ko-formuliertes Insulin (ein- oder zweimal täglich) · Insulinmangel Falls Insulinmangel, beginne hier (Basalinsulin bzw. ko-formuliertes Insulin) · Unter Insulin Weiterfahren mit Metformin, SGLT-2i, GLP-1-RA. Stopp: Sulfonylharnstoff + DPP4i (falls GLP-1-RA)"
+        },
+        {
+          "typ": "bild",
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Chronische Nierenerkrankung bei Diabetes – holistische Therapie",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Holistische Therapie der chronischen Nierenerkrankung bei Diabetes mellitus",
+          "bild": 2,
+          "suchtext": "Erstlinien-Therapie CKD und Diabetes: SGLT-2 H. falls eGFR ≥20 bis Dialyse oder Tx; Metformin falls eGFR ≥30; zusätzliche risikobasierte Therapie: GLP-1 RA; nichtsteroidaler MRA (Finerenon) falls Mikroalbuminurie und normales Kalium; Insulin um HbA1c-Ziel zu erreichen; Therapie Hypertonie: RAS-Hemmer max. tolerierte Dosis (falls HT); Calcium B. ± Diuretikum (Erreichen BD-Ziel); steroidaler MRA für resistente HT falls eGFR ≥45; Therapie Hyperlipidämie: Statin, Bempedoinsäure; Ezetimib, PCSK-9 H, Icosapent-Aethyl; Rossing P Kidney International 2022;102:990-999"
         }
       ],
       "synonyme": [
@@ -672,6 +718,26 @@ window.KB = {
         "diabetes mellitus",
         "t2d",
         "dm2"
+      ],
+      "siehe": [
+        {
+          "kapitel": "Spezielle Situationen",
+          "ziel": "hypertonie",
+          "zielKapitel": "Spezielle Situationen",
+          "text": "Blutdruck: Therapiebeginn und Ziel bei Diabetes (ESC 2024)"
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "ziel": "dyslipidaemie",
+          "zielKapitel": "Therapie",
+          "text": "Lipidtherapie bei Typ-2-Diabetes mit hohem bis extremem Risiko"
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "ziel": "ckd",
+          "zielKapitel": "Therapie",
+          "text": "CKD: Diagnostik und Aktionsplan"
+        }
       ]
     },
     {
@@ -921,7 +987,8 @@ window.KB = {
       },
       "hinweise": [
         "Im Vortrag gehören beide Folien zum Thema ACS.",
-        "AGLA: «Die hier dargestellten Behandlungsschemata berücksichtigen die Limitatio des BAG für PCSK9-Inhibitoren und Bempedoinsäure. Sie weichen deshalb von der PCSK9-Indikation in den ESC/EAS Guidelines ab.»"
+        "AGLA: «Die hier dargestellten Behandlungsschemata berücksichtigen die Limitatio des BAG für PCSK9-Inhibitoren und Bempedoinsäure. Sie weichen deshalb von der PCSK9-Indikation in den ESC/EAS Guidelines ab.»",
+        "Risiko/Klassifikation enthält die ESC/EAS-Kategorien 2025 (Text) und die ältere ESC-Grafik mit SCORE-Schwellen <1 / 1–5 / 5–10 / ≥10 % (Bild). Beides so übernommen."
       ],
       "screenshots": [
         {
@@ -931,9 +998,53 @@ window.KB = {
         {
           "datei": "img/lipide-agla-schema.png",
           "titel": "AGLA Behandlungsschema – sehr hohes Risiko"
+        },
+        {
+          "datei": "img/lipide-esc-eas-2025.png",
+          "titel": "Lipide: ESC/EAS Guidelines 2025"
+        },
+        {
+          "datei": "img/lipide-t2d-hochrisiko.png",
+          "titel": "Vorgehen bei Typ 2 Diabetes bei hohem, sehr hohem und extremem Risiko"
         }
       ],
       "eintraege": [
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC/EAS 2025 – Risikokategorien und LDL-C-Ziel",
+          "indikation": "Tiefes Risiko",
+          "massnahme": "SCORE/SCORE OP <2 % · LDL-C-Ziel <3 mmol/l",
+          "bild": 2
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC/EAS 2025 – Risikokategorien und LDL-C-Ziel",
+          "indikation": "Mittleres Risiko",
+          "massnahme": "SCORE/SCORE OP 2–<10 %; junge Patienten (T1D <35 J., T2D <50 J. und Diabetesdauer <10 Jahren) ohne zusätzliche RF · LDL-C-Ziel <2.6 mmol/l",
+          "bild": 2
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC/EAS 2025 – Risikokategorien und LDL-C-Ziel",
+          "indikation": "Hohes Risiko",
+          "massnahme": "SCORE/SCORE OP 10–<20 %, familiäre Hypercholesterinämie ohne RF, mässige CKD (30–59 ml/min), stark erhöhte RF (TC >8 mM, LDL-C >4.9 mM, BD >180/110 mmHg), Diabetes ohne Folgekomplikationen (FK) mit Diabetesdauer ≥10 J. oder zusätzliche RF · LDL-C-Ziel <1.8 mmol/l",
+          "bild": 2
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC/EAS 2025 – Risikokategorien und LDL-C-Ziel",
+          "indikation": "Sehr hohes Risiko",
+          "massnahme": "SCORE/SCORE OP >20 %, kardiovaskuläre Erkrankung, familiäre HC mit kvK und RF, schwere CKD (<30 ml/min), Diabetes mit FK und ≥3 RF oder T1D mit Diabetesdauer ≥20 J. · LDL-C-Ziel <1.4 mmol/l",
+          "bild": 2
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC/EAS 2025 – Risikokategorien und LDL-C-Ziel",
+          "indikation": "Extremes Risiko",
+          "massnahme": "KvK und rezidiv. Ereignis unter max. Statinen; polyvaskuläre Erkrankung: KHK und PAVK · LDL-C-Ziel <1.0 mmol/l",
+          "bild": 2,
+          "notiz": "Mach F et al. European Heart Journal 2025;46:4359–4378; Rechner: agla.ch/de/rechner-und-tools/esc-score2-diabetes-rechner"
+        },
         {
           "typ": "bild",
           "kapitel": "Risiko/Klassifikation",
@@ -951,6 +1062,15 @@ window.KB = {
           "massnahme": "AGLA Behandlungsschema – sehr hohes Risiko",
           "bild": 1,
           "suchtext": "Start Hochwirksames Statin (Rosuvastatin, Pitavastatin, Atorvastatin) · LDL-C <1,4 mmol/l und Senkung ≥50 % Therapie kontrolliert fortsetzen · Ziel nicht erreicht, keine manifeste ASCVD Ezetimib · Ziel nicht erreicht, manifeste ASCVD, LDL-C ≤1,8 mmol/l Ezetimib · Ziel nicht erreicht, manifeste ASCVD, LDL-C >1,8 mmol/l PCSK9-Inhibitor (siRNA: Inclisiran; mAbs: Alirocumab, Evolocumab) oder Ezetimib · Unter Ezetimib LDL-C ≤1,8 mmol/l Therapie kontrolliert fortsetzen · Unter Ezetimib LDL-C >1,8 mmol/l PCSK9-Inhibitor oder Bempedoinsäure · Therapie kontrolliert fortsetzen LDL-C-Kontrolle 1×/Jahr; häufiger bei entsprechender klinischer Situation"
+        },
+        {
+          "typ": "bild",
+          "kapitel": "Therapie",
+          "gruppe": "Typ-2-Diabetes bei hohem, sehr hohem und extremem Risiko (inkl. Limitationen Spezialitätenliste)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Vorgehen bei Typ 2 Diabetes bei hohem, sehr hohem und extremem Risiko",
+          "bild": 3,
+          "suchtext": "LDL-Ziel <1.8 / 1.4 / 1.0 mmol/l; intensive Statintherapie (Rosuvastatin 20 mg, Atorvastatin 40 mg); Ezetimib 10 mg; Kombination = meine persönliche Präferenz LDL-Senkung 60%; Statinintoleranz = Bempedoinsäure + Ezetimibe LDL-Senkung 38%; weitere Therapien: ohne klinisches atherosklerotisches kardiovaskuläres Ereignis Bempedoinsäure 68%; mit klinischem Ereignis Bempedoinsäure 68% oder PCSK-9 Hemmer 80% oder PCSK-9 Hemmer + Statin + Bempedoinsäure + Ezetimibe 86%; Chait A Atherosclerosis 2024;394:117313; Mach F EHJ 2025;46:4359-4378"
         }
       ],
       "siehe": [
@@ -1581,9 +1701,39 @@ window.KB = {
         {
           "datei": "img/hypertonie-kombinationen.png",
           "titel": "Therapie: Medikamente (bpmodel.org)"
+        },
+        {
+          "datei": "img/hypertonie-esc-2024-kategorien.png",
+          "titel": "ESC Guidelines arterielle Hypertonie 2024"
+        },
+        {
+          "datei": "img/hypertonie-therapieeskalation.png",
+          "titel": "ESC Guidelines für Therapie arterielle Hypertonie"
         }
       ],
       "eintraege": [
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC 2024 – Blutdruckkategorien (Praxis-Blutdruck)",
+          "indikation": "Nicht erhöhter Blutdruck",
+          "massnahme": "Systol. <120 mmHg und diastol. <70 mmHg",
+          "bild": 3
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC 2024 – Blutdruckkategorien (Praxis-Blutdruck)",
+          "indikation": "Erhöhter Blutdruck",
+          "massnahme": "Systol. 120–139 mmHg und diastol. 70–89 mmHg",
+          "bild": 3
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "ESC 2024 – Blutdruckkategorien (Praxis-Blutdruck)",
+          "indikation": "Hypertonie",
+          "massnahme": "Systol. >140 mmHg und diastol. >90 mmHg",
+          "bild": 3,
+          "notiz": "Wortlaut der Folie («> 140», «und»)"
+        },
         {
           "typ": "bild",
           "kapitel": "Risiko/Klassifikation",
@@ -1617,11 +1767,42 @@ window.KB = {
         {
           "typ": "bild",
           "kapitel": "Therapie",
+          "gruppe": "Therapieeskalation (ESC 2024)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "ESC Guidelines für Therapie arterielle Hypertonie",
+          "bild": 4,
+          "suchtext": "Tiefe Dosis Kombinationstherapie 2 Medikamente ACE-Hemmer/ARB oder Kalziumantagonisten oder Diuretika Klasse I; Blutdruck nicht im Zielbereich nach 1-3 Monaten; tiefe Dosis Tripeltherapie 3 Medikamente Klasse I; maximal tolerierte Dosis Tripeltherapie Klasse I; resistente Hypertonie: Zuweisung zu Spezialisten und Adhärenzkontrolle, Zugabe Aldosteronantagonist Klasse IIa; Zugabe Beta-Blocker falls Angina pectoris, nach Myokardinfarkt, HFrEF, Herzfrequenzkontrolle Klasse I; ESC Eur Heart J 2024;45:3912"
+        },
+        {
+          "typ": "bild",
+          "kapitel": "Therapie",
           "gruppe": "Kombinationstherapie – Wirkung je Kombination (bpmodel.org)",
           "indikation": "Flowchart/Grafik",
           "massnahme": "Therapie: Medikamente (bpmodel.org)",
           "bild": 2,
           "suchtext": "Spalten None 0 mg · Losartan 50 / 100 mg · Lisinopril 10 / 20 mg · Metoprolol 50 / 100 mg · HCT 0 mg + Amlodipin 0 mg None: – · Losartan 50: 7 (6–8) · Losartan 100: 8 (7–9) · Lisinopril 10: 7 (6–8) · Lisinopril 20: 10 (7–11) · Metoprolol 50: 7 (5–8) · Metoprolol 100: 7 (6–8) · HCT 0 mg + Amlodipin 5 mg None: 9 (8–10) · Losartan 50: 15 (13–16) · Losartan 100: 16 (14–17) · Lisinopril 10: 15 (13–16) · Lisinopril 20: 18 (15–19) · Metoprolol 50: 15 (13–16) · Metoprolol 100: 15 (14–17) · HCT 0 mg + Amlodipin 10 mg None: 12 (10–15) · Losartan 50: 18 (15–19) · Losartan 100: 19 (16–21) · Lisinopril 10: 18 (16–20) · Lisinopril 20: 21 (17–22) · Metoprolol 50: 18 (16–20) · Metoprolol 100: 18 (16–21) · HCT 12,5 mg + Amlodipin 0 mg None: 6 (5–7) · Losartan 50: 12 (11–13) · Losartan 100: 13 (12–14) · Lisinopril 10: 12 (11–13) · Lisinopril 20: 15 (13–16) · Metoprolol 50: 12 (11–13) · Metoprolol 100: 12 (11–14) · HCT 12,5 mg + Amlodipin 5 mg None: 14 (13–15) · Losartan 50: 19 (17–20) · Losartan 100: 20 (18–21) · Lisinopril 10: 20 (18–21) · Lisinopril 20: 22 (19–24) · Metoprolol 50: 19 (17–21) · Metoprolol 100: 20 (17–21) · HCT 12,5 mg + Amlodipin 10 mg None: 17 (15–19) · Losartan 50: 22 (19–24) · Losartan 100: 23 (20–25) · Lisinopril 10: 22 (20–24) · Lisinopril 20: 25 (21–27) · Metoprolol 50: 22 (19–24) · Metoprolol 100: 22 (19–24) · HCT 25 mg + Amlodipin 0 mg None: 8 (7–9) · Losartan 50: 14 (12–15) · Losartan 100: 15 (13–16) · Lisinopril 10: 14 (12–15) · Lisinopril 20: 17 (15–18) · Metoprolol 50: 14 (12–15) · Metoprolol 100: 14 (12–15) · HCT 25 mg + Amlodipin 5 mg None: 16 (14–17) · Losartan 50: 21 (19–22) · Losartan 100: 22 (19–23) · Lisinopril 10: 21 (19–22) · Lisinopril 20: 24 (21–25) · Metoprolol 50: 21 (19–22) · Metoprolol 100: 21 (18–23) · HCT 25 mg + Amlodipin 10 mg None: 19 (17–21) · Losartan 50: 23 (20–25) · Losartan 100: 24 (21–26) · Lisinopril 10: 24 (21–25) · Lisinopril 20: 26 (22–28) · Metoprolol 50: 23 (20–25) · Metoprolol 100: 23 (20–25)"
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Diabetes mellitus, Prädiabetes oder Adipositas (ESC 2024)",
+          "indikation": "Therapiebeginn",
+          "massnahme": "Therapie ab Blutdruck >130/80 mmHg",
+          "bild": 3
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Diabetes mellitus, Prädiabetes oder Adipositas (ESC 2024)",
+          "indikation": "Blutdruck-Ziel",
+          "massnahme": "Systol. BD 120–129 mmHg, diastol. BD 70–79 mmHg",
+          "bild": 3
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Diabetes mellitus, Prädiabetes oder Adipositas (ESC 2024)",
+          "indikation": "Ausnahme",
+          "massnahme": "Orthostase und/oder Alter >85 Jahre, Lebenserwartung <3 Jahre",
+          "bild": 3,
+          "notiz": "McEvoy JW et al. Eur Heart J 2024;45:3912–4028"
         }
       ],
       "synonyme": [
@@ -1754,6 +1935,12 @@ window.KB = {
           "ziel": "vorhofflimmern",
           "zielKapitel": "Risiko/Klassifikation",
           "text": "Vorhofflimmern: CHA₂DS₂-VA – ab wann antikoagulieren"
+        },
+        {
+          "kapitel": "Therapie",
+          "ziel": "vte",
+          "zielKapitel": "Therapie",
+          "text": "Venöse Thromboembolie: Schemata, Dauer, distale/proximale TVT, LE"
         }
       ],
       "synonyme": [
@@ -1783,16 +1970,25 @@ window.KB = {
         "ssapm"
       ],
       "quelle": {
-        "typ": "Leitlinie",
-        "stand": "2024",
-        "titel": "Perioperative Pain Medicine – Recommendations of the Swiss Society for Anaesthesiology and Perioperative Medicine (SSAPM), Version 1.0, approved 23.08.2024"
+        "typ": "Leitlinie + Vortrag",
+        "stand": "2024–2026",
+        "titel": "Perioperative Pain Medicine – Recommendations of the Swiss Society for Anaesthesiology and Perioperative Medicine (SSAPM), Version 1.0, approved 23.08.2024; Vortragsfolien (K. Streitberger, Insel)"
       },
       "hinweise": [
         "Nur patientenbezogene Empfehlungen übernommen (Abklärung, Diagnose, Prävention, Therapie, Nachsorge). Strukturelle und organisatorische Anforderungen (Tab. 1, Teile von Tab. 2, Kap. 3.1, 3.2, 5, Anhang) sind weggelassen.",
         "Die Empfehlungsstärken des Dokuments betreffen nur die strukturellen Anforderungen (Tab. 1); für die übernommenen Punkte ist keine Stärke angegeben.",
         "Wortlaut englisch wie im Original, Kapitel- und Tabellenangaben in den Zwischentiteln."
       ],
-      "screenshots": [],
+      "screenshots": [
+        {
+          "datei": "img/pain-prevention-begriffe.png",
+          "titel": "Prevention of postoperative pain (Vortrag)"
+        },
+        {
+          "datei": "img/pain-preemptive-nma.png",
+          "titel": "Efficacy of preemptive analgesia treatments (Xuan et al., BJA 2022)"
+        }
+      ],
       "eintraege": [
         {
           "kapitel": "Diagnostik",
@@ -1913,6 +2109,106 @@ window.KB = {
           "gruppe": "Risiko für Opioid-Langzeitgebrauch nach OP (Kap. 4.2)",
           "indikation": "Perioperative Indikatoren",
           "massnahme": "Severe pain and high opioid demands."
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Prevention of postoperative pain – Begriffe und Methoden (Vortrag)",
+          "indikation": "Pre-emptive analgesia",
+          "massnahme": "Before surgery",
+          "bild": 0
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Prevention of postoperative pain – Begriffe und Methoden (Vortrag)",
+          "indikation": "Preventive analgesia",
+          "massnahme": "Before pain awareness",
+          "bild": 0
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Prevention of postoperative pain – Begriffe und Methoden (Vortrag)",
+          "indikation": "Postoperative analgesia",
+          "massnahme": "After surgery",
+          "bild": 0
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Prevention of postoperative pain – Begriffe und Methoden (Vortrag)",
+          "indikation": "Perioperative analgesia",
+          "massnahme": "During anaesthesia care",
+          "bild": 0,
+          "notiz": "Auf der Folie hervorgehoben"
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Prevention of postoperative pain – Begriffe und Methoden (Vortrag)",
+          "indikation": "Methods",
+          "massnahme": "Opioids, nonopioids, co-analgesics, ketamine, regional anesthesia, physical measures, psychosocial measures",
+          "bild": 0
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Prevention of postoperative pain – Begriffe und Methoden (Vortrag)",
+          "indikation": "Ziel",
+          "massnahme": "Prevention of chronic pain",
+          "bild": 0
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "Gabapentinoid vs placebo",
+          "massnahme": "−11.72 (−14.60 to −8.84)",
+          "bild": 1
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "NSAIDs vs placebo",
+          "massnahme": "−11.11 (−14.65 to −7.56)",
+          "bild": 1
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "Epidural vs placebo",
+          "massnahme": "−11.04 (−20.52 to −1.55)",
+          "bild": 1
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "NMDA vs placebo",
+          "massnahme": "−8.37 (−14.29 to −2.45)",
+          "bild": 1
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "Opioid vs placebo",
+          "massnahme": "−5.17 (−13.53 to 3.19)",
+          "bild": 1
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "Wound vs placebo",
+          "massnahme": "−6.16 (−13.10 to 0.78)",
+          "bild": 1
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "Alpha-receptor vs placebo",
+          "massnahme": "−1.09 (−9.63 to 7.46)",
+          "bild": 1,
+          "notiz": "Obergrenze auf der Folie teilweise vom Mauszeiger verdeckt"
+        },
+        {
+          "kapitel": "Prävention",
+          "gruppe": "Pre-emptive Analgesie: Netzwerk-Metaanalyse, VAS6 (Xuan et al., BJA 2022;129(6):946–958)",
+          "indikation": "Multimodal vs placebo",
+          "massnahme": "NR",
+          "bild": 1
         },
         {
           "kapitel": "Prävention",
@@ -2119,6 +2415,250 @@ window.KB = {
           "gruppe": "Weiterbetreuung nach Entlassung (Kap. 3.3, 4.2, 5)",
           "indikation": "Risikopatienten",
           "massnahme": "Follow up patients at risk for CPSP and patients discharged with a new opioid medication; follow-up shared between the primary care provider and the chronic pain consultation."
+        }
+      ]
+    },
+    {
+      "id": "vte",
+      "titel": "Venöse Thromboembolie (TVT / Lungenembolie)",
+      "fachgebiet": "Gerinnung",
+      "synonyme": [
+        "venöse thromboembolie",
+        "thromboembolie",
+        "vte",
+        "tvt",
+        "thrombose",
+        "beinvenenthrombose",
+        "venenthrombose",
+        "lungenembolie",
+        "le",
+        "pe",
+        "pulmonary embolism",
+        "phlebitis",
+        "thrombophlebitis",
+        "oberflächliche venenthrombose"
+      ],
+      "tags": [
+        "antikoagulation",
+        "apixaban",
+        "rivaroxaban",
+        "edoxaban",
+        "pert",
+        "spesi"
+      ],
+      "quelle": {
+        "typ": "Vortrag (FOMF)",
+        "stand": "2025/2026",
+        "titel": "Oberflächliche Venenthrombose: Eur J Vasc Endovasc Surg (2021) 61, 9e82"
+      },
+      "hinweise": [],
+      "screenshots": [
+        {
+          "datei": "img/vte-zusammenfassung-1.png",
+          "titel": "Zusammenfassung I"
+        },
+        {
+          "datei": "img/vte-zusammenfassung-2.png",
+          "titel": "Zusammenfassung II"
+        },
+        {
+          "datei": "img/vte-zusammenfassung-3.png",
+          "titel": "Zusammenfassung III"
+        },
+        {
+          "datei": "img/vte-le-risikostratifizierung.png",
+          "titel": "Lungenembolie – Risikostratifizierung"
+        },
+        {
+          "datei": "img/vte-antikoagulation-schema.png",
+          "titel": "Antikoagulation bei VTE"
+        },
+        {
+          "datei": "img/vte-oberflaechliche-venenthrombose.png",
+          "titel": "Suspected lower limb superficial vein thrombosis"
+        }
+      ],
+      "eintraege": [
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Akute Thrombose (Zusammenfassung I)",
+          "indikation": "Diagnostik",
+          "massnahme": "D-Dimer, Duplexsonographie/Angio-CT",
+          "bild": 0
+        },
+        {
+          "kapitel": "Diagnostik",
+          "gruppe": "Akute Thrombose (Zusammenfassung I)",
+          "indikation": "Diagnosesicherung",
+          "massnahme": "Immer Diagnosesicherung mit Bildgebung vor längerer Antikoagulation",
+          "bild": 0
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Lungenembolie – Risikostratifizierung (frühes Mortalitätsrisiko)",
+          "indikation": "High",
+          "massnahme": "Schock/Hypotension: + · sPESI ≥1: (+) · RV-Belastung (Echo/CT): + · Biomarker (Troponin, BNP): (+)",
+          "bild": 3
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Lungenembolie – Risikostratifizierung (frühes Mortalitätsrisiko)",
+          "indikation": "Intermediate High",
+          "massnahme": "Schock/Hypotension: – · sPESI ≥1: + · RV-Belastung und Biomarker: beide",
+          "bild": 3
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Lungenembolie – Risikostratifizierung (frühes Mortalitätsrisiko)",
+          "indikation": "Intermediate Low",
+          "massnahme": "Schock/Hypotension: – · sPESI ≥1: + · RV-Belastung und Biomarker: eines / keine",
+          "bild": 3
+        },
+        {
+          "kapitel": "Risiko/Klassifikation",
+          "gruppe": "Lungenembolie – Risikostratifizierung (frühes Mortalitätsrisiko)",
+          "indikation": "Low",
+          "massnahme": "Schock/Hypotension: – · sPESI ≥1: – · RV-Belastung und Biomarker: keine",
+          "bild": 3,
+          "notiz": "PERT = pulmonary embolism response team"
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Akute Thrombose (Zusammenfassung I)",
+          "indikation": "Bei hoher Wahrscheinlichkeit",
+          "massnahme": "Beginn mit LMWH/DOAK (und immer Diagnosesicherung mit Bildgebung vor längerer Antikoagulation)",
+          "bild": 0
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Akute Thrombose (Zusammenfassung I)",
+          "indikation": "Allgemein",
+          "massnahme": "Kompression",
+          "bild": 0
+        },
+        {
+          "typ": "bild",
+          "kapitel": "Therapie",
+          "gruppe": "Antikoagulation bei VTE (Bildgebung!) – Schemata und Dauer",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Antikoagulation bei VTE",
+          "bild": 4,
+          "suchtext": "LMWH/Heparin + Vitamin-K-Antagonist (Marcoumar 3 mg ½–1 Tbl), 3–7 Tage bis INR 2× 2.0–3.0, dann Vitamin-K-Antagonist; LMWH sc 1×/d für 5 Tage, dann Lixiana (Edoxaban) 1×60 mg/30 mg po; Rivaroxaban 2×15 mg po für 21 Tage, dann 1×20 mg po; Eliquis (Apixaban) 2× 2×5 mg für 7 Tage, dann 2×5 mg po; Dauer: provoziert 90 Tage, unprovoziert >90 Tage bis >1 Jahr"
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Distale (infragenikuläre) Thrombose (Zusammenfassung II)",
+          "indikation": "Niedriges Risiko",
+          "massnahme": "Keine AK, Kontroll-Duplex in 7 Tagen",
+          "bild": 1
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Distale (infragenikuläre) Thrombose (Zusammenfassung II)",
+          "indikation": "Erhöhtes Risiko",
+          "massnahme": "AK, limitiert für 3 Monate",
+          "bild": 1
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Proximale venöse Thromboembolien inkl. LE (Zusammenfassung II)",
+          "indikation": "Unprovozierte / Rezidiv-provozierte / provoziert + Risiko",
+          "massnahme": "Start mit Apixaban 2×10 für 7 Tage",
+          "bild": 1
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Proximale venöse Thromboembolien inkl. LE (Zusammenfassung II)",
+          "indikation": "Unprovozierte / Rezidiv-provozierte / provoziert + Risiko",
+          "massnahme": "Apixaban therapeutisch bis 6 Monate",
+          "bild": 1
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Proximale venöse Thromboembolien inkl. LE (Zusammenfassung II)",
+          "indikation": "Unprovozierte / Rezidiv-provozierte / provoziert + Risiko",
+          "massnahme": "Unlimitiert low dose",
+          "bild": 1
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Proximale venöse Thromboembolien inkl. LE (Zusammenfassung II)",
+          "indikation": "Bereits Erhaltungsdosis",
+          "massnahme": "Kein Wechsel von Rivaroxaban auf Apixaban",
+          "bild": 1
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Proximale venöse Thromboembolien inkl. LE (Zusammenfassung II)",
+          "indikation": "Cancer",
+          "massnahme": "Dosisreduktion nach 6 Monaten",
+          "bild": 1
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Lungenembolie (Zusammenfassung III)",
+          "indikation": "Asymptomatische, isolierte subsegmentale LE",
+          "massnahme": "AK nicht zwingend",
+          "bild": 2
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Lungenembolie (Zusammenfassung III)",
+          "indikation": "Stabile LE",
+          "massnahme": "AK, reduzieren nach 6–12 Monaten",
+          "bild": 2
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Lungenembolie (Zusammenfassung III)",
+          "indikation": "Schock / intermediate high risk LE + kleines Blutungsrisiko",
+          "massnahme": "PERT; (peripheral Thrombolysis + AK); Katheterthrombektomie / intravenöse zentrale Lyse",
+          "bild": 2
+        },
+        {
+          "kapitel": "Therapie",
+          "gruppe": "Lungenembolie (Zusammenfassung III)",
+          "indikation": "Endovaskulär",
+          "massnahme": "Sowohl bei VT wie auch LE hochselektives Patientengut",
+          "bild": 2
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Phlebitis / oberflächliche Venenthrombose (Zusammenfassung I)",
+          "indikation": "Unterscheidung",
+          "massnahme": "Varikophlebitis vs. Thrombophlebitis",
+          "bild": 0
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Phlebitis / oberflächliche Venenthrombose (Zusammenfassung I)",
+          "indikation": "Ausdehnung (<3 cm Perf und >5 cm)",
+          "massnahme": "Antikoagulation 10–90 Tage",
+          "bild": 0
+        },
+        {
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Phlebitis / oberflächliche Venenthrombose (Zusammenfassung I)",
+          "indikation": "Verlauf",
+          "massnahme": "Evaluation minimal invasiver Varikosebehandlung",
+          "bild": 0
+        },
+        {
+          "typ": "bild",
+          "kapitel": "Spezielle Situationen",
+          "gruppe": "Oberflächliche Venenthrombose der unteren Extremität – Abklärung und Therapie (ESVS 2021)",
+          "indikation": "Flowchart/Grafik",
+          "massnahme": "Suspected lower limb superficial vein thrombosis",
+          "bild": 5,
+          "suchtext": "Whole leg ultrasound scan to determine thrombus extent and exclude asymptomatic deep vein thrombosis Class I B; SVT ≥3 cm from junction and ≥5 cm length: fondaparinux 2.5 mg once daily Class I B, intermediate dose LMWH alternative Class IIa B, 45 day course Class I B; SVT <3 cm from junction: therapeutic anticoagulation Class I C; three month course if high risk Class IIb C; ablation of incompetent superficial veins at least three months after thrombotic event Class IIa C; deep vein thrombosis: treatment of DVT"
+        }
+      ],
+      "siehe": [
+        {
+          "kapitel": "Therapie",
+          "ziel": "antikoagulation",
+          "zielKapitel": "Therapie",
+          "text": "Antikoagulanzien nach Indikation und Monitoring"
         }
       ]
     }
